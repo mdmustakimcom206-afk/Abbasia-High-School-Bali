@@ -68,7 +68,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
             <div class="nav-dropdown">
 
-                <button class="dropdown-btn">
+                <button type="button" class="dropdown-btn">
                     তথ্যসমূহ
                     <i class="fa-solid fa-chevron-down"></i>
                 </button>
@@ -97,7 +97,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
             <div class="nav-dropdown">
 
-                <button class="dropdown-btn">
+                <button type="button" class="dropdown-btn">
                     শিক্ষক ও কর্মচারী
                     <i class="fa-solid fa-chevron-down"></i>
                 </button>
@@ -131,8 +131,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 <div class="top-notice" role="region" aria-label="School announcements">
     <div class="ticker-shell">
         <span class="ticker-label"><i class="fa-solid fa-bullhorn"></i> <b data-bn="সর্বশেষ বার্তা" data-en="LATEST">সর্বশেষ বার্তা</b></span>
-        <div class="ticker-window" aria-live="polite">
-            <span class="ticker-text" id="schoolTickerText">আব্বাছিয়া উচ্চ বিদ্যালয়, বালী — অফিসিয়াল ওয়েবসাইটে স্বাগতম</span>
+        <div class="ticker-window" aria-live="off">
+            <div class="ticker-track" id="schoolTickerTrack">
+                <span class="ticker-text" id="schoolTickerText">Welcome to the official website of Abbasia High School, Bali</span>
+                <span class="ticker-text" aria-hidden="true">Welcome to the official website of Abbasia High School, Bali</span>
+            </div>
         </div>
         <span class="ticker-live"><i></i> LIVE</span>
     </div>
@@ -277,31 +280,31 @@ const TEACHERS = [
 const STAFF = [
 
     {
-        name: "রাসেল",
+        name: "কর্মচারী ১",
         designation: "অফিস সহকারী",
         image: "images/staff-1.jpg"
     },
 
     {
-        name: "রাজ",
+        name: "কর্মচারী ২",
         designation: "অফিস সহায়ক",
         image: "images/staff-2.jpg"
     },
 
     {
-        name: "আকাশ",
+        name: "কর্মচারী ৩",
         designation: "নিরাপত্তা কর্মী",
         image: "images/staff-3.jpg"
     },
 
     {
-        name: "জিহাদ",
+        name: "কর্মচারী ৪",
         designation: "পরিচ্ছন্নতাকর্মী",
         image: "images/staff-4.jpg"
     },
 
     {
-        name: "মিম",
+        name: "কর্মচারী ৫",
         designation: "সহায়ক কর্মচারী",
         image: "images/staff-5.jpg"
     }
@@ -679,31 +682,8 @@ const STAFF = [
 
         </div>
 
-        <div class="notice-box">
-
-            <div class="notice-icon">
-                <i class="fa-solid fa-bell"></i>
-            </div>
-
-            <div class="notice-content">
-
-                <h3>
-                    বার্ষিক পরীক্ষা সংক্রান্ত বিজ্ঞপ্তি
-                </h3>
-
-                <p>
-                    ২০২৬ সালের বার্ষিক পরীক্ষা আগামী
-                    <strong>১৫ ডিসেম্বর ২০২৬</strong>
-                    থেকে শুরু হবে।
-                </p>
-
-                <span>
-                    <i class="fa-regular fa-calendar"></i>
-                    ২০২৬
-                </span>
-
-            </div>
-
+        <div class="notice-board-grid" id="noticeBoardGrid" aria-label="বিদ্যালয়ের সকল নোটিশ">
+            <!-- নোটিশগুলো নিচের noticeData তালিকা থেকে স্বয়ংক্রিয়ভাবে দেখানো হবে। -->
         </div>
 
     </div>
@@ -1469,361 +1449,127 @@ const STAFF = [
 </section>
 
 
-<section class="section light-bg" id="payment" hidden>
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <span>অনলাইন পেমেন্ট</span>
-
-            <h2>ভর্তি ফি প্রদান</h2>
-
-            <p>
-                আবেদন নম্বর বা জন্মসনদ/বয়সের তথ্য প্রয়োজন নেই।
-            </p>
-
-        </div>
-
-
-        <div class="payment-layout">
-
-            <div class="payment-info">
-
-                <div class="payment-brand">
-                    <i class="fa-solid fa-wallet"></i>
-                    <h3>পেমেন্ট তথ্য</h3>
-                </div>
-
-                <div class="payment-row">
-
-                    <span>পেমেন্ট নম্বর</span>
-
-                    <strong>
-                        01786938377
-                    </strong>
-
-                </div>
-
-                <div class="payment-row">
-
-                    <span>ভর্তি ফি</span>
-
-                    <strong>
-                        ৳ 500
-                    </strong>
-
-                </div>
-
-                <div class="payment-note">
-
-                    <i class="fa-solid fa-circle-info"></i>
-
-                    <span>
-                        টাকা পাঠানোর পর নিচের ফর্মে প্রেরকের নম্বর
-                        ও Transaction ID দিন।
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <form id="paymentForm" class="payment-form">
-
-                <div class="form-card">
-
-                    <div class="form-card-title">
-                        <i class="fa-solid fa-money-bill-transfer"></i>
-                        পেমেন্টের তথ্য
-                    </div>
-
-                    <div class="input-group">
-
-                        <label>
-                            পেমেন্ট পদ্ধতি *
-                        </label>
-
-                        <select id="paymentMethod" required>
-
-                            <option value="">
-                                নির্বাচন করুন
-                            </option>
-
-                            <option value="bKash">
-                                bKash
-                            </option>
-
-                            <option value="Nagad">
-                                Nagad
-                            </option>
-
-                        </select>
-
-                    </div>
-
-                    <div class="input-group">
-
-                        <label>
-                            যে নম্বর থেকে টাকা পাঠিয়েছেন *
-                        </label>
-
-                        <input
-                            type="tel"
-                            id="senderNumber"
-                            required
-                            placeholder="01XXXXXXXXX">
-
-                    </div>
-
-                    <div class="input-group">
-
-                        <label>
-                            Transaction ID *
-                        </label>
-
-                        <input
-                            type="text"
-                            id="transactionId"
-                            required
-                            placeholder="Transaction ID">
-
-                    </div>
-
-                    <div class="input-group">
-
-                        <label>
-                            পরিমাণ
-                        </label>
-
-                        <input
-                            type="text"
-                            value="৳ 500"
-                            readonly>
-
-                    </div>
-
-                    <button
-                        type="submit"
-                        class="submit-btn payment-submit">
-
-                        <i class="fa-solid fa-receipt"></i>
-                        পেমেন্ট রিসিট তৈরি করুন
-
-                    </button>
-
-                </div>
-
-            </form>
-
-        </div>
-
+<section class="section light-bg" id="payment">
+  <div class="container">
+    <div class="section-heading">
+      <span>অনলাইন পেমেন্ট</span>
+      <h2>পেমেন্ট করুন</h2>
+      <p>নিরাপদে পেমেন্ট সম্পন্ন করতে নিচের বাটনে ক্লিক করুন।</p>
     </div>
 
-</section>
-
-
-<section
-    class="receipt-result-section"
-    id="receiptResultSection"
-    style="display:none;">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <span>পেমেন্ট সম্পন্ন</span>
-
-            <h2>পেমেন্ট রিসিট</h2>
-
-        </div>
-
-        <div class="receipt-actions">
-
-            <button
-                type="button"
-                id="printReceipt"
-                class="print-btn">
-
-                <i class="fa-solid fa-print"></i>
-                রিসিট প্রিন্ট করুন
-
-            </button>
-
-        </div>
-
-
-        <div class="receipt-paper" id="receiptPaper">
-
-            <div class="receipt-copy">
-
-                <div class="receipt-copy-label">
-                    অফিস কপি
-                </div>
-
-                <div class="receipt-header">
-
-                    <img
-                        src="images/logo.jpg"
-                        alt="লোগো"
-                        onerror="this.src='images/school.jpg'">
-
-                    <div>
-
-                        <h2>
-                            আব্বাছিয়া উচ্চ বিদ্যালয়, বালী
-                        </h2>
-
-                        <p>
-                            পেমেন্ট রিসিট
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="receipt-table">
-
-                    <div>
-                        <span>পেমেন্ট পদ্ধতি</span>
-                        <strong id="receiptMethod1"></strong>
-                    </div>
-
-                    <div>
-                        <span>প্রেরকের নম্বর</span>
-                        <strong id="receiptSender1"></strong>
-                    </div>
-
-                    <div>
-                        <span>Transaction ID</span>
-                        <strong id="receiptTransaction1"></strong>
-                    </div>
-
-                    <div>
-                        <span>তারিখ</span>
-                        <strong id="receiptDate1"></strong>
-                    </div>
-
-                    <div class="total">
-                        <span>মোট</span>
-                        <strong>৳ 500</strong>
-                    </div>
-
-                </div>
-
-                <div class="receipt-sign">
-                    অনুমোদিত স্বাক্ষর
-                </div>
-
-            </div>
-
-
-            <div class="receipt-divider"></div>
-
-
-            <div class="receipt-copy">
-
-                <div class="receipt-copy-label">
-                    শিক্ষার্থী কপি
-                </div>
-
-                <div class="receipt-header">
-
-                    <img
-                        src="images/logo.jpg"
-                        alt="লোগো"
-                        onerror="this.src='images/school.jpg'">
-
-                    <div>
-
-                        <h2>
-                            আব্বাছিয়া উচ্চ বিদ্যালয়, বালী
-                        </h2>
-
-                        <p>
-                            পেমেন্ট রিসিট
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="receipt-table">
-
-                    <div>
-                        <span>পেমেন্ট পদ্ধতি</span>
-                        <strong id="receiptMethod2"></strong>
-                    </div>
-
-                    <div>
-                        <span>প্রেরকের নম্বর</span>
-                        <strong id="receiptSender2"></strong>
-                    </div>
-
-                    <div>
-                        <span>Transaction ID</span>
-                        <strong id="receiptTransaction2"></strong>
-                    </div>
-
-                    <div>
-                        <span>তারিখ</span>
-                        <strong id="receiptDate2"></strong>
-                    </div>
-
-                    <div class="total">
-                        <span>মোট</span>
-                        <strong>৳ 500</strong>
-                    </div>
-
-                </div>
-
-                <div class="receipt-sign">
-                    অনুমোদিত স্বাক্ষর
-                </div>
-
-            </div>
-
-        </div>
-
+    <div class="payment-entry-panel">
+      <div class="payment-entry-icon"><i class="fa-solid fa-shield-halved"></i></div>
+      <h3>সহজ ও নিরাপদ অনলাইন পেমেন্ট</h3>
+      <p>বিকাশ, নগদ, উপায়, রকেট অথবা কার্ডের মাধ্যমে পেমেন্টের জন্য এগিয়ে যান।</p>
+      <button type="button" class="payment-open-btn" onclick="openSchoolPaymentCard()">
+        <i class="fa-solid fa-lock"></i> Pay Now / পেমেন্ট করুন
+      </button>
     </div>
 
+    <div class="school-payment-card" id="schoolPaymentCard" aria-hidden="true">
+      <button type="button" class="school-payment-close" onclick="closeSchoolPaymentCard()" aria-label="Close payment card">&times;</button>
+      <div class="school-payment-brand">
+        <img src="images/logo.jpg" alt="Abbasia High School Logo" onerror="this.style.display='none'">
+        <h3>Abbasia High School, Bali</h3>
+        <p>ONLINE PAYMENT PORTAL</p>
+      </div>
+      <div class="demo-payment-alert"><i class="fa-solid fa-circle-info"></i><span><strong>ডেমো পেমেন্ট:</strong> এখানে কোনো আসল টাকা কাটা হবে না। এটি শুধু পরীক্ষামূলক প্রদর্শন।</span></div>
+
+      <div class="payment-step-block">
+        <div class="payment-step-title"><span>01</span><div><h4>ফি / পেমেন্টের খাত নির্বাচন</h4><p>যে খাতের টাকা জমা দিতে চান সেটি নির্বাচন করুন</p></div></div>
+        <label class="payment-field-label" for="demoFeeType">পেমেন্টের খাত *</label>
+        <select id="demoFeeType" class="payment-form-control" onchange="updateDemoFeeAmount()">
+          <option value="admission">ভর্তি ফি</option><option value="monthly">মাসিক বেতন</option><option value="exam">পরীক্ষার ফি</option><option value="session">সেশন চার্জ</option><option value="registration">রেজিস্ট্রেশন ফি</option><option value="idcard">আইডি কার্ড ফি</option><option value="certificate">সনদ / প্রশংসাপত্র ফি</option><option value="other">অন্যান্য ফি</option>
+        </select>
+        <div id="demoClassWrap" class="payment-field-wrap"><label class="payment-field-label" for="demoStudentClass">শ্রেণি *</label><select id="demoStudentClass" class="payment-form-control" onchange="updateDemoFeeAmount()"><option value="6">ষষ্ঠ</option><option value="7">সপ্তম</option><option value="8">অষ্টম</option><option value="9">নবম</option><option value="10">দশম</option></select></div>
+        <div class="payment-amount-panel"><span>প্রদেয় পরিমাণ (ডেমো নমুনা)</span><strong id="demoFeeAmount">৳ 1,500</strong><small>প্রকৃত ফি বিদ্যালয় কর্তৃপক্ষের নির্ধারিত তালিকা অনুযায়ী আপডেট করতে হবে।</small></div>
+      </div>
+
+      <div class="payment-step-block">
+        <div class="payment-step-title"><span>02</span><div><h4>শিক্ষার্থীর তথ্য</h4><p>রসিদ তৈরির জন্য প্রয়োজনীয় তথ্য দিন</p></div></div>
+        <div class="payment-form-grid">
+          <div class="payment-field-wrap full"><label class="payment-field-label" for="demoStudentName">শিক্ষার্থীর পূর্ণ নাম *</label><input id="demoStudentName" class="payment-form-control" type="text" placeholder="শিক্ষার্থীর নাম লিখুন" required></div>
+          <div class="payment-field-wrap"><label class="payment-field-label" for="demoRoll">রোল নম্বর *</label><input id="demoRoll" class="payment-form-control" type="text" placeholder="রোল নম্বর" required></div>
+          <div class="payment-field-wrap"><label class="payment-field-label" for="demoStudentId">শিক্ষার্থী আইডি (যদি থাকে)</label><input id="demoStudentId" class="payment-form-control" type="text" placeholder="আইডি নম্বর"></div>
+          <div class="payment-field-wrap"><label class="payment-field-label" for="demoGuardianPhone">অভিভাবকের মোবাইল *</label><input id="demoGuardianPhone" class="payment-form-control" type="tel" inputmode="numeric" maxlength="15" placeholder="01XXXXXXXXX" required></div>
+          <div class="payment-field-wrap"><label class="payment-field-label" for="demoAcademicYear">শিক্ষাবর্ষ *</label><select id="demoAcademicYear" class="payment-form-control"><option>2026</option><option>2027</option><option>2025</option></select></div>
+        </div>
+      </div>
+
+      <div class="payment-step-block">
+        <div class="payment-step-title"><span>03</span><div><h4>পেমেন্ট মাধ্যম নির্বাচন</h4><p>নিচের যেকোনো একটি মাধ্যম নির্বাচন করুন</p></div></div>
+        <div class="school-payment-methods" role="group" aria-label="Payment methods">
+          <button type="button" class="school-payment-method method-bkash" data-method="bkash" onclick="chooseSchoolPayment('bkash',this)" aria-label="bKash বিকাশ"><img class="payment-provider-logo" src="https://raw.githubusercontent.com/mdmubarokhosin/Bd-MFS-Logo/refs/heads/main/logos/png/bkash.png" alt="bKash logo"><strong>bKash</strong><small>বিকাশ</small></button>
+          <button type="button" class="school-payment-method method-nagad" data-method="nagad" onclick="chooseSchoolPayment('nagad',this)" aria-label="Nagad নগদ"><img class="payment-provider-logo" src="https://raw.githubusercontent.com/mdmubarokhosin/Bd-MFS-Logo/refs/heads/main/logos/png/nagad.png" alt="Nagad logo"><strong>Nagad</strong><small>নগদ</small></button>
+          <button type="button" class="school-payment-method method-upay" data-method="upay" onclick="chooseSchoolPayment('upay',this)" aria-label="Upay উপায়"><img class="payment-provider-logo" src="https://raw.githubusercontent.com/mdmubarokhosin/Bd-MFS-Logo/refs/heads/main/logos/png/upay.png" alt="Upay logo"><strong>Upay</strong><small>উপায়</small></button>
+          <button type="button" class="school-payment-method method-rocket" data-method="rocket" onclick="chooseSchoolPayment('rocket',this)" aria-label="Rocket রকেট"><img class="payment-provider-logo" src="https://raw.githubusercontent.com/mdmubarokhosin/Bd-MFS-Logo/refs/heads/main/logos/png/rocket.png" alt="Rocket logo"><strong>Rocket</strong><small>রকেট</small></button>
+          <button type="button" class="school-payment-method method-visa" data-method="visa" onclick="chooseSchoolPayment('visa',this)" aria-label="Visa card"><img class="payment-provider-logo payment-card-logo" src="https://cdn.simpleicons.org/visa/1434CB" alt="Visa logo"><strong>VISA</strong><small>Card Payment</small></button>
+          <button type="button" class="school-payment-method method-mastercard" data-method="mastercard" onclick="chooseSchoolPayment('mastercard',this)" aria-label="Mastercard"><img class="payment-provider-logo payment-card-logo" src="https://cdn.simpleicons.org/mastercard/EB001B" alt="Mastercard logo"><strong>Mastercard</strong><small>Card Payment</small></button>
+        </div>
+        <div class="school-payment-selected" id="schoolPaymentSelected" aria-live="polite">পেমেন্ট মাধ্যম নির্বাচন করুন</div>
+        <div id="demoPaymentInstructions" class="demo-payment-instructions" hidden></div>
+        <div class="payment-field-wrap" id="demoPayerFieldWrap"><label class="payment-field-label" id="demoPayerLabel" for="demoPayerPhone">পেমেন্টকারীর মোবাইল নম্বর *</label><input id="demoPayerPhone" class="payment-form-control" type="tel" inputmode="numeric" maxlength="15" placeholder="01XXXXXXXXX" autocomplete="off"></div>
+        <div class="demo-payment-note" id="demoMethodNote">এটি পরীক্ষামূলক পেমেন্ট ধাপ। কোনো OTP, PIN, CVV বা গোপন তথ্য এখানে চাইবে না।</div>
+        <button type="button" class="school-payment-continue" onclick="completeDemoSchoolPayment()"><i class="fa-solid fa-shield-check"></i> পেমেন্ট সম্পন্ন করুন</button>
+      </div>
+    </div>
+  </div>
 </section>
 
+<section class="receipt-result-section" id="receiptResultSection" style="display:none;">
+  <div class="container">
+    <div class="section-heading"><span>DEMO PAYMENT SUCCESS</span><h2>পেমেন্ট ডেমো রসিদ</h2><p>নিচের রসিদটি শুধু পরীক্ষামূলক; এটি আসল টাকা জমার প্রমাণ নয়।</p></div>
+    <div class="receipt-actions"><button type="button" id="printReceipt" class="print-btn"><i class="fa-solid fa-print"></i> রসিদ প্রিন্ট / PDF</button><button type="button" class="print-btn" onclick="document.getElementById('payment').scrollIntoView({behavior:'smooth'});"><i class="fa-solid fa-arrow-left"></i> আবার পেমেন্ট</button></div>
+    <div class="receipt-copies" id="receiptCopies">
+    <div class="receipt-paper demo-receipt-paper receipt-copy student-copy" id="receiptPaper">
+      <div class="receipt-copy-label">শিক্ষার্থী কপি</div>
+      <div class="demo-receipt-watermark">DEMO</div>
+      <div class="receipt-header"><img src="images/logo.jpg" alt="School logo" onerror="this.src='images/school.jpg'"><div><h2>আব্বাছিয়া উচ্চ বিদ্যালয়, বালী</h2><p>পেমেন্ট রসিদ (DEMO COPY)</p><small>বালী, নেত্রকোণা, বাংলাদেশ</small></div></div>
+      <div class="demo-receipt-status">DEMO PAYMENT — NOT A REAL PAYMENT</div>
+      <div class="demo-receipt-number">রসিদ নম্বর: <strong id="demoReceiptNumber">DEMO-000000</strong></div>
+      <div class="receipt-table demo-receipt-table">
+        <div><span>শিক্ষার্থীর নাম</span><strong id="receiptStudentName">—</strong></div><div><span>শ্রেণি</span><strong id="receiptClass">—</strong></div><div><span>রোল নম্বর</span><strong id="receiptRoll">—</strong></div><div><span>শিক্ষার্থী আইডি</span><strong id="receiptStudentId">—</strong></div><div><span>শিক্ষাবর্ষ</span><strong id="receiptYear">—</strong></div><div><span>পেমেন্টের খাত</span><strong id="receiptFeeType">—</strong></div><div><span>পেমেন্ট মাধ্যম</span><strong id="receiptMethod">—</strong></div><div><span>অভিভাবকের মোবাইল</span><strong id="receiptGuardianPhone">—</strong></div><div><span>পেমেন্ট রেফারেন্স</span><strong id="receiptReference">—</strong></div><div><span>তারিখ ও সময়</span><strong id="receiptDate">—</strong></div><div class="total"><span>মোট ডেমো পরিমাণ</span><strong id="receiptAmount">৳ 0</strong></div>
+      </div>
+      <div class="demo-receipt-footer"><strong>এটি একটি পরীক্ষামূলক রসিদ।</strong><p>কোনো অর্থ লেনদেন হয়নি। আসল পেমেন্ট চালু হলে অনুমোদিত গেটওয়ের যাচাইকৃত Transaction ID দিয়ে রসিদ তৈরি হবে।</p></div>
+      <div class="receipt-sign">শিক্ষার্থীর সংরক্ষণের জন্য</div>
+    </div>
+    </div>
+  </div>
+</section>
 
 <section class="section" id="result">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <span>ফলাফল</span>
-
-            <h2>ফলাফল দেখুন</h2>
-
-            <p>
-                ফলাফল প্রকাশিত হলে এখানে ফলাফল সংক্রান্ত তথ্য দেওয়া হবে।
-            </p>
-
-        </div>
-
-        <div class="result-placeholder">
-
-            <i class="fa-solid fa-chart-line"></i>
-
-            <h3>
-                ফলাফল বিভাগ
-            </h3>
-
-            <p>
-                ফলাফল প্রকাশের পর এখানে প্রয়োজনীয় লিংক যুক্ত করা যাবে।
-            </p>
-
-        </div>
-
+  <div class="container">
+    <div class="section-heading">
+      <span>ACADEMIC RESULTS</span>
+      <h2>Examination Results</h2>
+      <p>Official examination result information of Abbasia High School, Bali.</p>
     </div>
-
+    <div class="result-portal-card result-card-only">
+      <div class="result-portal-head">
+        <div class="result-portal-emblem"><i class="fa-solid fa-graduation-cap"></i></div>
+        <div class="result-head-copy">
+          <span>ABBASIA HIGH SCHOOL, BALI</span>
+          <h3>Student Result Portal</h3>
+          <p>Education • Discipline • Progress</p>
+        </div>
+        <div class="result-live"><i></i> ACADEMIC RECORDS</div>
+      </div>
+      <div class="result-card-body">
+        <div class="result-card-icon"><i class="fa-solid fa-file-circle-check"></i></div>
+        <h4>Examination Results</h4>
+        <p>Examination results will be published here after the official mark sheets are entered and verified by the school.</p>
+        <div class="result-card-meta">
+          <span><i class="fa-solid fa-school"></i> School: Abbasia High School</span>
+          <span><i class="fa-solid fa-location-dot"></i> Bali, Netrokona, Bangladesh</span>
+        </div>
+        <div class="result-card-status"><span></span> RESULT INFORMATION</div>
+        <a class="result-open-portal" href="results.html">
+          <span>Open Result Portal</span><i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+      <div class="result-card-footer"><i class="fa-solid fa-shield-halved"></i> Official school result information</div>
+    </div>
+  </div>
 </section>
 
 
@@ -1972,9 +1718,9 @@ const STAFF = [
 
         <div class="section-heading">
 
-            <span>যোগাযোগ</span>
+            <span>CONTACT</span>
 
-            <h2>আমাদের সাথে যোগাযোগ করুন</h2>
+            <h2>Get in Touch</h2>
 
         </div>
 
@@ -1987,11 +1733,9 @@ const STAFF = [
                     <i class="fa-solid fa-location-dot"></i>
                 </div>
 
-                <h3>ঠিকানা</h3>
+                <h3>Address</h3>
 
-                <p>
-                    নেত্রকোণা সদর, নেত্রকোণা
-                </p>
+                <p>Baluakanda, Kailati, Netrokona Sadar, Netrokona-2400, Bangladesh</p>
 
             </div>
 
@@ -2002,7 +1746,7 @@ const STAFF = [
                     <i class="fa-solid fa-phone"></i>
                 </div>
 
-                <h3>ফোন</h3>
+                <h3>Phone</h3>
 
                 <p>
                     01786938377
@@ -2017,7 +1761,7 @@ const STAFF = [
                     <i class="fa-solid fa-envelope"></i>
                 </div>
 
-                <h3>ই-মেইল</h3>
+                <h3>Email</h3>
 
                 <p>
                     mdmustakimcom206@gmail.com
@@ -2046,41 +1790,56 @@ const STAFF = [
 
         </div>
 
+        <div class="school-map-card">
+          <div class="school-map-heading">
+            <span>FIND OUR CAMPUS</span>
+            <h3>School Location</h3>
+            <p>Anantapur,Bali,Sadar, Netrokona, Bangladesh</p>
+          </div>
+          <div class="school-map-frame">
+            <iframe title="Abbasia High School location map" src="https://maps.google.com/maps?q=24.8441%2C90.7333&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          </div>
+          <a class="school-map-link" href="https://www.google.com/maps/search/?api=1&query=24.8441%2C90.7333" target="_blank" rel="noopener"><i class="fa-solid fa-diamond-turn-right"></i> Get Directions</a>
+        </div>
+
     </div>
 
 </section>
 
 
 <footer class="footer">
-
-    <div class="container footer-inner">
-
-        <div>
-
-            <h3>
-                আব্বাছিয়া উচ্চ বিদ্যালয়, বালী
-            </h3>
-
-            <p>
-                শিক্ষা • শৃঙ্খলা • উন্নতি
-            </p>
-
-        </div>
-
-        <div>
-
-            <p>
-                © ২০২৬ আব্বাছিয়া উচ্চ বিদ্যালয়, বালী
-            </p>
-
-            <small>
-                সর্বস্বত্ব সংরক্ষিত
-            </small>
-
-        </div>
-
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-brand-block">
+        <a href="#home" class="footer-brand-link" aria-label="Back to Home">
+          <img src="images/logo.jpg" alt="Abbasia High School logo" onerror="this.src='images/school.jpg'">
+          <span><strong>Abbasia High School, Bali</strong><small>Education • Discipline • Progress</small></span>
+        </a>
+        <p class="footer-description">Official website of Abbasia High School, Bali, Netrokona.</p>
+      </div>
+      <div class="footer-navigation">
+        <h3>Quick Navigation</h3>
+        <nav class="footer-category-links" aria-label="Footer quick links">
+          <a href="#home"><i class="fa-solid fa-house"></i> Home</a>
+          <a href="#about"><i class="fa-solid fa-school"></i> About Us</a>
+          <a href="#academic"><i class="fa-solid fa-book-open"></i> Academic Programs</a>
+          <a href="#routine"><i class="fa-solid fa-calendar-days"></i> Class Routine</a>
+          <a href="#notice"><i class="fa-solid fa-bullhorn"></i> Notice Board</a>
+          <a href="#admission"><i class="fa-solid fa-file-signature"></i> Online Admission</a>
+          <a href="#payment"><i class="fa-solid fa-credit-card"></i> Payment</a>
+          <a href="#result"><i class="fa-solid fa-square-poll-vertical"></i> Results</a>
+          <a href="#teachers"><i class="fa-solid fa-chalkboard-user"></i> Teachers</a>
+          <a href="#staff"><i class="fa-solid fa-users"></i> Staff</a>
+          <a href="#gallery"><i class="fa-solid fa-images"></i> Gallery</a>
+          <a href="#contact"><i class="fa-solid fa-location-dot"></i> Contact</a>
+        </nav>
+      </div>
     </div>
-
+    <div class="footer-bottom">
+      <p>© 2026 Abbasia High School, Bali</p>
+      <small>All Rights Reserved</small>
+    </div>
+  </div>
 </footer>
 
 
@@ -3336,101 +3095,6 @@ document.getElementById(
 });
 
 
-document.getElementById(
-    "paymentForm"
-)
-.addEventListener("submit", function(e){
-
-    e.preventDefault();
-
-
-    const method =
-        document.getElementById(
-            "paymentMethod"
-        ).value;
-
-
-    const sender =
-        document.getElementById(
-            "senderNumber"
-        ).value;
-
-
-    const transaction =
-        document.getElementById(
-            "transactionId"
-        ).value;
-
-
-    if(!method || !sender || !transaction){
-
-        alert(
-            "সব তথ্য পূরণ করুন।"
-        );
-
-        return;
-
-    }
-
-
-    const date =
-        getBanglaDate();
-
-
-    document.getElementById(
-        "receiptMethod1"
-    ).textContent = method;
-
-
-    document.getElementById(
-        "receiptSender1"
-    ).textContent = sender;
-
-
-    document.getElementById(
-        "receiptTransaction1"
-    ).textContent = transaction;
-
-
-    document.getElementById(
-        "receiptDate1"
-    ).textContent = date;
-
-
-    document.getElementById(
-        "receiptMethod2"
-    ).textContent = method;
-
-
-    document.getElementById(
-        "receiptSender2"
-    ).textContent = sender;
-
-
-    document.getElementById(
-        "receiptTransaction2"
-    ).textContent = transaction;
-
-
-    document.getElementById(
-        "receiptDate2"
-    ).textContent = date;
-
-
-    document.getElementById(
-        "receiptResultSection"
-    ).style.display =
-        "block";
-
-
-    document.getElementById(
-        "receiptResultSection"
-    ).scrollIntoView({
-        behavior:"smooth"
-    });
-
-});
-
 
 document.getElementById(
     "printReceipt"
@@ -3510,8 +3174,8 @@ html{scroll-behavior:smooth}
     'শ্রেণিভিত্তিক রুটিন':'Class-wise Routine','প্রয়োজনীয় শ্রেণির রুটিন দেখতে নিচের বাটনে ক্লিক করুন':'Select a class below to view its routine','৬ষ্ঠ শ্রেণি':'Class 6','৭ম শ্রেণি':'Class 7','৮ম শ্রেণি':'Class 8','৯ম শ্রেণি':'Class 9','১০ম শ্রেণি':'Class 10','সর্বশেষ নোটিশ':'Latest Notice','বার্ষিক পরীক্ষা সংক্রান্ত বিজ্ঞপ্তি':'Annual Examination Notice','২০২৬ সালের বার্ষিক পরীক্ষা আগামী':'The 2026 annual examination will begin on','থেকে শুরু হবে।':'','১৫ ডিসেম্বর ২০২৬':'15 December 2026',
     'ধাপে ধাপে আবেদন সম্পন্ন করুন':'Complete your application step by step','শিক্ষার্থী':'Student','ঠিকানা':'Address','অভিভাবক':'Guardian','নিশ্চিত':'Confirm','শিক্ষার্থীর তথ্য':'Student Information','শিক্ষার্থীর পূর্ণ নাম *':'Student Full Name *','ভর্তির শ্রেণি *':'Admission Class *','শ্রেণি নির্বাচন করুন':'Select Class','লিঙ্গ *':'Gender *','নির্বাচন করুন':'Select','ছেলে':'Male','মেয়ে':'Female','জন্ম নিবন্ধন নম্বর *':'Birth Registration Number *','জন্ম তারিখ *':'Date of Birth *','দিন':'Day','মাস':'Month','বছর':'Year','জানুয়ারি':'January','ফেব্রুয়ারি':'February','মার্চ':'March','এপ্রিল':'April','মে':'May','জুন':'June','জুলাই':'July','আগস্ট':'August','সেপ্টেম্বর':'September','অক্টোবর':'October','নভেম্বর':'November','ডিসেম্বর':'December','শিক্ষার্থীর ছবি *':'Student Photo *','শুধু 300 × 300 Pixel ছবি':'300 × 300 Pixel image only','ছবির আকার অবশ্যই 300×300 হতে হবে':'Image must be exactly 300×300 pixels','পরবর্তী ধাপ':'Next Step','বিভাগ *':'Division *','বিভাগ নির্বাচন করুন':'Select Division','জেলা *':'District *','প্রথমে বিভাগ নির্বাচন করুন':'Select a division first','উপজেলা / থানা *':'Upazila / Police Station *','প্রথমে জেলা নির্বাচন করুন':'Select a district first','গ্রাম / মহল্লা *':'Village / Locality *','পূর্ববর্তী':'Previous','অভিভাবকের তথ্য':'Guardian Information','পিতার নাম *':'Father’s Name *','পিতার NID':'Father’s NID','মাতার নাম *':'Mother’s Name *','মাতার NID':'Mother’s NID','অভিভাবকের মোবাইল *':'Guardian Mobile *','সম্পর্ক *':'Relationship *','পিতা':'Father','মাতা':'Mother','ভাই':'Brother','বোন':'Sister','অন্যান্য':'Other','আবেদন নিশ্চিত করুন':'Confirm Application','আবেদন জমা দেওয়ার আগে তথ্য যাচাই করুন':'Review your information before submitting','আপনার দেওয়া সব তথ্য সঠিক হলে নিচের সম্মতিতে টিক দিয়ে আবেদন জমা দিন।':'If all information is correct, tick the declaration below and submit your application.','আমি ঘোষণা করছি যে, উপরে দেওয়া সকল তথ্য সঠিক ও সত্য।':'I declare that all the information provided above is true and correct.','আবেদন জমা দিন':'Submit Application','আগের আবেদন বের করুন':'Retrieve Previous Application','এই ডিভাইসে আগে আবেদন করা থাকলে আবেদনটি দেখতে পারবেন।':'You can view an application previously saved on this device.','আবেদন দেখুন':'View Application',
     'আবেদন সম্পন্ন':'Application Completed','আপনার আবেদনপত্র':'Your Application','PDF ডাউনলোড':'Download PDF','প্রিন্ট করুন':'Print','অনলাইন ভর্তি আবেদনপত্র':'Online Admission Form','আবেদন নম্বর:':'Application No:','তারিখ:':'Date:','শিক্ষার্থীর নাম':'Student Name','ভর্তির শ্রেণি':'Admission Class','লিঙ্গ':'Gender','জন্ম নিবন্ধন':'Birth Registration','জন্ম তারিখ':'Date of Birth','বিভাগ':'Division','জেলা':'District','উপজেলা / থানা':'Upazila / Police Station','গ্রাম / মহল্লা':'Village / Locality','অভিভাবকের তথ্য':'Guardian Information','পিতার নাম':'Father’s Name','পিতার NID':'Father’s NID','মাতার নাম':'Mother’s Name','মাতার NID':'Mother’s NID','মোবাইল':'Mobile','সম্পর্ক':'Relationship','অভিভাবকের স্বাক্ষর':'Guardian Signature','বিদ্যালয় কর্তৃপক্ষ':'School Authority',
-    'অনলাইন পেমেন্ট':'Online Payment','ভর্তি ফি প্রদান':'Pay Admission Fee','আবেদন নম্বর বা জন্মসনদ/বয়সের তথ্য প্রয়োজন নেই।':'No application number or birth certificate/age information is required.','পেমেন্ট তথ্য':'Payment Information','পেমেন্ট নম্বর':'Payment Number','ভর্তি ফি':'Admission Fee','টাকা পাঠানোর পর নিচের ফর্মে প্রেরকের নম্বর ও Transaction ID দিন।':'After sending the payment, enter the sender’s number and Transaction ID below.','পেমেন্টের তথ্য':'Payment Details','পেমেন্ট পদ্ধতি *':'Payment Method *','যে নম্বর থেকে টাকা পাঠিয়েছেন *':'Sender’s Mobile Number *','পরিমাণ':'Amount','পেমেন্ট রিসিট তৈরি করুন':'Generate Payment Receipt','পেমেন্ট সম্পন্ন':'Payment Completed','পেমেন্ট রিসিট':'Payment Receipt','রিসিট প্রিন্ট করুন':'Print Receipt','অফিস কপি':'Office Copy','পেমেন্ট পদ্ধতি':'Payment Method','প্রেরকের নম্বর':'Sender’s Number','অনুমোদিত স্বাক্ষর':'Authorized Signature','শিক্ষার্থী কপি':'Student Copy',
-    'ফলাফল দেখুন':'View Results','ফলাফল প্রকাশিত হলে এখানে ফলাফল সংক্রান্ত তথ্য দেওয়া হবে।':'Result information will be published here when available.','ফলাফল বিভাগ':'Results Section','ফলাফল প্রকাশের পর এখানে প্রয়োজনীয় লিংক যুক্ত করা যাবে।':'Relevant links will be added here after results are published.','আমাদের শিক্ষকবৃন্দ':'Our Teachers','অভিজ্ঞ ও নিবেদিতপ্রাণ শিক্ষকবৃন্দ':'Experienced and dedicated teachers','আমাদের কর্মচারীবৃন্দ':'Our Staff','বিদ্যালয়ের দৈনন্দিন কার্যক্রমে নিয়োজিত কর্মচারীবৃন্দ':'Staff members supporting the school’s daily operations','ফটো গ্যালারি':'Photo Gallery','বিদ্যালয়ের কিছু ছবি':'A glimpse of our school','আমাদের সাথে যোগাযোগ করুন':'Get in Touch','ফোন':'Phone','ই-মেইল':'Email','ঠিকানা':'Address','সর্বস্বত্ব সংরক্ষিত':'All rights reserved'
+    'অনলাইন পেমেন্ট':'Online Payment','পেমেন্ট করুন':'Make a Payment','সহজ ও নিরাপদ অনলাইন পেমেন্ট':'Easy & Secure Online Payment','নিরাপদে পেমেন্ট সম্পন্ন করতে নিচের বাটনে ক্লিক করুন।':'Click the button below to continue securely.','বিকাশ, নগদ, উপায়, রকেট অথবা কার্ডের মাধ্যমে পেমেন্টের জন্য এগিয়ে যান।':'Continue to pay with bKash, Nagad, Upay, Rocket or card.','Pay Now / পেমেন্ট করুন':'Pay Now','Secure Online Payment':'Secure Online Payment','পেমেন্ট মাধ্যম নির্বাচন করুন':'Choose a Payment Method','আপনার পছন্দের পেমেন্ট মাধ্যমটি বেছে নিন':'Select your preferred payment method','বিকাশ':'bKash','নগদ':'Nagad','উপায়':'Upay','রকেট':'Rocket','নির্বাচিত পেমেন্ট মাধ্যম: ':'Selected payment method: ','নিরাপদ পেমেন্ট ব্যবস্থার মাধ্যমে পেমেন্ট সম্পন্ন করুন':'Complete your payment securely','ভর্তি ফি প্রদান':'Pay Admission Fee','আবেদন নম্বর বা জন্মসনদ/বয়সের তথ্য প্রয়োজন নেই।':'No application number or birth certificate/age information is required.','পেমেন্ট তথ্য':'Payment Information','পেমেন্ট নম্বর':'Payment Number','ভর্তি ফি':'Admission Fee','টাকা পাঠানোর পর নিচের ফর্মে প্রেরকের নম্বর ও Transaction ID দিন।':'After sending the payment, enter the sender’s number and Transaction ID below.','পেমেন্টের তথ্য':'Payment Details','পেমেন্ট পদ্ধতি *':'Payment Method *','যে নম্বর থেকে টাকা পাঠিয়েছেন *':'Sender’s Mobile Number *','পরিমাণ':'Amount','পেমেন্ট রিসিট তৈরি করুন':'Generate Payment Receipt','পেমেন্ট সম্পন্ন':'Payment Completed','পেমেন্ট রিসিট':'Payment Receipt','রিসিট প্রিন্ট করুন':'Print Receipt','অফিস কপি':'Office Copy','পেমেন্ট পদ্ধতি':'Payment Method','প্রেরকের নম্বর':'Sender’s Number','অনুমোদিত স্বাক্ষর':'Authorized Signature','শিক্ষার্থী কপি':'Student Copy',
+    'ফলাফল দেখুন':'View Results','Secure Online Payment':'Secure Online Payment','Choose your preferred payment service to continue':'Choose your preferred payment service to continue','Payment link coming soon':'Payment link coming soon','Official payment links will be connected here after the school provides the verified URLs.':'Official payment links will be connected here after the school provides the verified URLs.','Open Result Portal':'Open Result Portal','ফলাফল প্রকাশিত হলে এখানে ফলাফল সংক্রান্ত তথ্য দেওয়া হবে।':'Result information will be published here when available.','ফলাফল বিভাগ':'Results Section','ফলাফল প্রকাশের পর এখানে প্রয়োজনীয় লিংক যুক্ত করা যাবে।':'Relevant links will be added here after results are published.','আমাদের শিক্ষকবৃন্দ':'Our Teachers','অভিজ্ঞ ও নিবেদিতপ্রাণ শিক্ষকবৃন্দ':'Experienced and dedicated teachers','আমাদের কর্মচারীবৃন্দ':'Our Staff','বিদ্যালয়ের দৈনন্দিন কার্যক্রমে নিয়োজিত কর্মচারীবৃন্দ':'Staff members supporting the school’s daily operations','ফটো গ্যালারি':'Photo Gallery','বিদ্যালয়ের কিছু ছবি':'A glimpse of our school','আমাদের সাথে যোগাযোগ করুন':'Get in Touch','ফোন':'Phone','ই-মেইল':'Email','ঠিকানা':'Address','সর্বস্বত্ব সংরক্ষিত':'All rights reserved'
   };
 
   const originals=new WeakMap();
@@ -3550,6 +3214,15 @@ html{scroll-behavior:smooth}
       const link=e.target.closest('a[href^="#"]');
       if(!link) return;
       const href=link.getAttribute('href');
+      if(link.closest('.footer-category-links')){
+        const fastTarget=document.querySelector(href);
+        if(!fastTarget) return;
+        e.preventDefault();
+        if(fastTarget.hidden) fastTarget.hidden=false;
+        fastTarget.scrollIntoView({behavior:'smooth',block:'start'});
+        history.replaceState(null,'',href);
+        return;
+      }
       if(!href || href==='#') return;
       const target=document.querySelector(href);
       if(!target) return;
@@ -3561,7 +3234,7 @@ html{scroll-behavior:smooth}
       const turn=document.createElement('div');
       turn.className='book-page-transition';
       turn.setAttribute('aria-hidden','true');
-      turn.innerHTML='<div class="book-animation-stage"><div class="book-page-left"></div><div class="book-page-right"></div><div class="book-page-spine"></div></div>';
+      turn.innerHTML='<div class="book-animation-stage"><div class="book-page-left"></div><div class="book-page-right"></div><div class="book-page-spine"></div><div class="book-logo-mark"><img src="images/logo.jpg" alt="আব্বাছিয়া উচ্চ বিদ্যালয় লোগো" onerror="this.onerror=null;this.src=\'images/school.jpg\';"></div></div>';
       document.body.appendChild(turn);
       requestAnimationFrame(()=>turn.classList.add('turning'));
       window.setTimeout(()=>{
@@ -3570,20 +3243,47 @@ html{scroll-behavior:smooth}
       },420);
       window.setTimeout(()=>turn.remove(),1050);
     },true);
-    // Premium reveal motion: stagger cards and section content as they enter view.
-    const revealTargets=document.querySelectorAll('.section-heading,.quick-card,.feature-card,.person-card,.gallery-item,.contact-card,.notice-box,.about-image,.about-content,.principal-card,.form-card,.payment-info,.hero-content,.hero-image,.stat-item,main section .container > h2,main section .container > p,main section .container > .grid,main section .container > .cards,.btn,button');
-    if('IntersectionObserver' in window){
+    // Premium scroll reveals: reveal each meaningful content block once.
+    // Buttons/inputs are deliberately excluded so controls never appear disabled or vanish.
+    const revealSelector=[
+      'main section .container > h2',
+      'main section .container > .section-heading',
+      '.quick-card','.feature-card','.person-card','.staff-card',
+      '.gallery-item','.video-card','.contact-card','.notice-box',
+      '.about-image','.about-content','.principal-card',
+      '.form-card','.payment-info','.payment-form',
+      '.stat-item','.academic-card','.routine-card',
+      '.result-card','.notice-card','.message-card'
+    ].join(',');
+    const revealTargets=[...document.querySelectorAll(revealSelector)].filter((el,index,all)=>{
+      if(all.indexOf(el)!==index) return false;
+      if(el.closest('[hidden],.hidden,[aria-hidden="true"]')) return false;
+      if(el.matches('button,a,input,select,textarea')) return false;
+      return true;
+    });
+    if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      revealTargets.forEach(el=>el.classList.add('is-visible'));
+    }else if('IntersectionObserver' in window){
       const revealObserver=new IntersectionObserver(entries=>{
         entries.forEach(entry=>{
-          if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target);}
+          if(!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
         });
-      },{threshold:0.04,rootMargin:'0px 0px -10px 0px'});
+      },{threshold:0.08,rootMargin:'0px 0px -45px 0px'});
       revealTargets.forEach((el,index)=>{
         el.classList.add('scroll-reveal-premium');
-        el.style.setProperty('--reveal-delay',`${(index%4)*75}ms`);
+        const group=el.parentElement ? [...el.parentElement.children].filter(child=>child.matches(revealSelector)) : [];
+        const order=Math.max(0,group.indexOf(el));
+        el.style.setProperty('--reveal-delay',`${Math.min(order,5)*85}ms`);
+        if(el.matches('.about-image,.hero-image')) el.classList.add('reveal-from-left');
+        else if(el.matches('.about-content,.principal-card')) el.classList.add('reveal-from-right');
+        else if(el.matches('.person-card,.gallery-item,.video-card,.quick-card,.feature-card')) el.classList.add('reveal-zoom');
         revealObserver.observe(el);
       });
-    }else{revealTargets.forEach(el=>el.classList.add('is-visible'));}
+    }else{
+      revealTargets.forEach(el=>el.classList.add('is-visible'));
+    }
     // If a form generates new content later, translate the new text too.
     const observer=new MutationObserver(records=>{for(const record of records){for(const node of record.addedNodes){if(node.nodeType===Node.TEXT_NODE) translateNode(node); else if(node.nodeType===Node.ELEMENT_NODE){const w=document.createTreeWalker(node,NodeFilter.SHOW_TEXT);let t;while((t=w.nextNode()))translateNode(t);}}}});
     observer.observe(document.body,{childList:true,subtree:true});
@@ -3594,7 +3294,7 @@ html{scroll-behavior:smooth}
 
 
 <script>
-/* Rotating bilingual school headline ticker */
+/* Seamless, never-ending bilingual school headline marquee. */
 (function(){
   const messages=[
     {bn:'আব্বাছিয়া উচ্চ বিদ্যালয়, বালী — অফিসিয়াল ওয়েবসাইটে স্বাগতম',en:'Welcome to the official website of Abbasia High School, Bali'},
@@ -3602,26 +3302,226 @@ html{scroll-behavior:smooth}
     {bn:'ভর্তি, নোটিশ, ফলাফল ও বিদ্যালয়ের সকল তথ্য এখন এক ঠিকানায়',en:'Admission, notices, results and school information — all in one place'},
     {bn:'জ্ঞান অর্জন, স্বপ্নের বিকাশ, আগামীর নেতৃত্ব',en:'Knowledge, dreams and leadership for tomorrow'}
   ];
-  let index=0;
-  function showNext(){
-    const el=document.getElementById('schoolTickerText');
-    if(!el) return;
-    const lang=document.documentElement.lang==='bn'?'bn':'en';
-    el.classList.remove('ticker-enter');
-    void el.offsetWidth;
-    el.textContent=messages[index][lang];
-    el.classList.add('ticker-enter');
-    index=(index+1)%messages.length;
+  function updateTicker(lang){
+    const track=document.getElementById('schoolTickerTrack');
+    if(!track) return;
+    const text=messages.map(item=>item[lang==='bn'?'bn':'en']).join('   ✦   ');
+    track.innerHTML='';
+    for(let i=0;i<2;i++){
+      const span=document.createElement('span');
+      span.className='ticker-text';
+      span.textContent=text;
+      if(i===1) span.setAttribute('aria-hidden','true');
+      track.appendChild(span);
+    }
   }
   document.addEventListener('DOMContentLoaded',function(){
-    showNext();
-    window.setInterval(showNext,4300);
-    document.querySelectorAll('.lang-btn').forEach(btn=>btn.addEventListener('click',()=>{
-      const el=document.getElementById('schoolTickerText');
-      if(el){el.textContent=messages[(index+messages.length-1)%messages.length][btn.dataset.lang==='bn'?'bn':'en'];}
-    }));
+    updateTicker(document.documentElement.lang==='bn'?'bn':'en');
+    document.querySelectorAll('.lang-btn').forEach(btn=>btn.addEventListener('click',()=>updateTicker(btn.dataset.lang)));
+    const observer=new MutationObserver(()=>updateTicker(document.documentElement.lang==='bn'?'bn':'en'));
+    observer.observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
   });
 })();
 </script>
+
+<script>
+/* Keep the announcement headline pinned immediately below the sticky school header. */
+(function(){
+  function setupStickyTicker(){
+    const header=document.querySelector('.main-header');
+    if(!header) return;
+    const updateOffset=()=>{
+      const height=Math.ceil(header.getBoundingClientRect().height);
+      document.documentElement.style.setProperty('--sticky-school-header-height',height+'px');
+    };
+    updateOffset();
+    if('ResizeObserver' in window){
+      const observer=new ResizeObserver(updateOffset);
+      observer.observe(header);
+    }
+    window.addEventListener('resize',updateOffset,{passive:true});
+  }
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',setupStickyTicker,{once:true});
+  }else{
+    setupStickyTicker();
+  }
+})();
+</script>
+
+
+<!-- View-only notice paper: intentionally has no print or download controls. -->
+<div class="notice-paper-modal" id="noticePaperModal" aria-hidden="true">
+  <div class="notice-paper-backdrop" data-notice-close></div>
+  <section class="notice-paper-dialog" role="dialog" aria-modal="true" aria-labelledby="noticePaperTitle">
+    <button class="notice-paper-close" type="button" aria-label="বন্ধ করুন" data-notice-close><i class="fa-solid fa-xmark"></i></button>
+    <div class="notice-paper-sheet">
+      <div class="notice-paper-school">
+        <img src="images/logo.jpg" alt="বিদ্যালয়ের লোগো" onerror="this.style.display='none'">
+        <div><h2>আব্বাছিয়া উচ্চ বিদ্যালয়</h2><p>বালী, নেত্রকোণা</p></div>
+      </div>
+      <div class="notice-paper-rule"></div>
+      <div class="notice-paper-label">অফিসিয়াল নোটিশ</div>
+      <h3 id="noticePaperTitle">নোটিশের শিরোনাম</h3>
+      <p class="notice-paper-date" id="noticePaperDate"><i class="fa-regular fa-calendar"></i> প্রকাশকাল: বিদ্যালয় কর্তৃক নির্ধারিত</p>
+      <p class="notice-paper-body" id="noticePaperBody"></p>
+      <div class="notice-paper-sign"><span>প্রধান শিক্ষক</span><span>আব্বাছিয়া উচ্চ বিদ্যালয়</span></div>
+      <p class="notice-paper-viewonly"><i class="fa-solid fa-eye"></i> এটি শুধু দেখার জন্য। প্রিন্ট বা ডাউনলোডের কোনো অপশন নেই।</p>
+    </div>
+  </section>
+</div>
+
+
+
+<script>
+/* Multiple notices: each card opens its own view-only paper. Edit this list to publish school notices. */
+(function(){
+  const noticeData = [
+    {title:'ভর্তি সংক্রান্ত বিজ্ঞপ্তি',date:'প্রকাশের তারিখ যুক্ত করুন',summary:'নতুন শিক্ষাবর্ষে ভর্তি কার্যক্রম, যোগ্যতা ও প্রয়োজনীয় কাগজপত্র সম্পর্কে বিস্তারিত জানতে ক্লিক করুন।',body:'নতুন শিক্ষাবর্ষে ভর্তিচ্ছু শিক্ষার্থী ও অভিভাবকদের বিদ্যালয় অফিস থেকে ভর্তি ফরম, ভর্তির যোগ্যতা, প্রয়োজনীয় কাগজপত্র এবং নির্ধারিত সময়সূচি জেনে নেওয়ার জন্য অনুরোধ করা হলো।',icon:'fa-user-plus'},
+    {title:'বার্ষিক পরীক্ষা সংক্রান্ত বিজ্ঞপ্তি',date:'প্রকাশের তারিখ যুক্ত করুন',summary:'বার্ষিক পরীক্ষার সময়সূচি ও পরীক্ষার্থীদের জন্য প্রয়োজনীয় নির্দেশনা।',body:'বার্ষিক পরীক্ষার তারিখ, বিষয়ভিত্তিক সময়সূচি এবং পরীক্ষার নিয়মাবলি বিদ্যালয় কর্তৃপক্ষের প্রকাশিত রুটিন অনুযায়ী অনুসরণ করতে হবে। সকল শিক্ষার্থীকে পরীক্ষার আগে প্রবেশপত্র ও প্রয়োজনীয় শিক্ষা উপকরণ প্রস্তুত রাখার নির্দেশ দেওয়া হলো।',icon:'fa-file-pen'},
+    {title:'ক্লাস রুটিন ও উপস্থিতি সংক্রান্ত নোটিশ',date:'প্রকাশের তারিখ যুক্ত করুন',summary:'শ্রেণি কার্যক্রম, সময়সূচি এবং নিয়মিত উপস্থিতি সম্পর্কে নির্দেশনা।',body:'সকল শিক্ষার্থীকে নিজ নিজ শ্রেণির প্রকাশিত রুটিন অনুযায়ী বিদ্যালয়ে উপস্থিত থাকতে হবে। নিয়মিত ক্লাসে অংশগ্রহণ এবং সময়মতো বিদ্যালয়ে আসার জন্য শিক্ষার্থীদের নির্দেশ দেওয়া হলো।',icon:'fa-calendar-days'},
+    {title:'বেতন ও ফি জমা সংক্রান্ত বিজ্ঞপ্তি',date:'প্রকাশের তারিখ যুক্ত করুন',summary:'বিদ্যালয়ের নির্ধারিত বেতন ও অন্যান্য ফি জমা দেওয়ার নির্দেশনা।',body:'সকল শিক্ষার্থী ও অভিভাবককে বিদ্যালয় কর্তৃপক্ষের নির্ধারিত নিয়ম ও সময়ের মধ্যে বেতন এবং প্রযোজ্য অন্যান্য ফি পরিশোধ করার জন্য অনুরোধ করা হলো। বিস্তারিত তথ্যের জন্য বিদ্যালয় অফিসে যোগাযোগ করুন।',icon:'fa-money-bill-wave'},
+    {title:'ছুটি ও বিদ্যালয় বন্ধের বিজ্ঞপ্তি',date:'প্রকাশের তারিখ যুক্ত করুন',summary:'সরকারি/নির্ধারিত ছুটি এবং বিদ্যালয়ের কার্যক্রম সম্পর্কে জানুন।',body:'বিদ্যালয়ের ছুটি ও পুনরায় ক্লাস শুরুর তারিখ সম্পর্কে বিদ্যালয় কর্তৃপক্ষের প্রকাশিত সর্বশেষ নির্দেশনা অনুসরণ করার জন্য সকল শিক্ষার্থী ও অভিভাবককে অনুরোধ করা হলো।',icon:'fa-calendar-xmark'},
+    {title:'ফলাফল প্রকাশ সংক্রান্ত বিজ্ঞপ্তি',date:'প্রকাশের তারিখ যুক্ত করুন',summary:'পরীক্ষার ফলাফল দেখা ও প্রয়োজনীয় তথ্য সংগ্রহের নির্দেশনা।',body:'পরীক্ষার ফলাফল প্রকাশের তারিখ ও ফলাফল সংগ্রহের নিয়ম বিদ্যালয় কর্তৃপক্ষের মাধ্যমে জানানো হবে। ফলাফল সংক্রান্ত প্রয়োজনে শ্রেণিশিক্ষক অথবা বিদ্যালয় অফিসে যোগাযোগ করুন।',icon:'fa-award'}
+  ];
+  function initNoticePaper(){
+    const grid=document.getElementById('noticeBoardGrid');
+    const modal=document.getElementById('noticePaperModal');
+    if(!grid||!modal) return;
+    const titleEl=document.getElementById('noticePaperTitle');
+    const dateEl=document.getElementById('noticePaperDate');
+    const bodyEl=document.getElementById('noticePaperBody');
+    grid.innerHTML=noticeData.map((n,i)=>`<article class="notice-box" role="button" tabindex="0" data-notice-index="${i}" aria-haspopup="dialog"><div class="notice-icon"><i class="fa-solid ${n.icon}"></i></div><div class="notice-content"><h3>${n.title}</h3><p>${n.summary}</p><span><i class="fa-regular fa-calendar"></i>${n.date}</span><span class="notice-open-hint"><i class="fa-regular fa-eye"></i> বিস্তারিত দেখুন</span></div><span class="notice-card-number">${String(i+1).padStart(2,'0')}</span></article>`).join('');
+    let lastCard=null;
+    const close=()=>{modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true');document.body.classList.remove('notice-paper-open');if(lastCard)lastCard.focus();};
+    const open=(card)=>{const n=noticeData[Number(card.dataset.noticeIndex)];if(!n)return;lastCard=card;titleEl.textContent=n.title;dateEl.innerHTML='<i class="fa-regular fa-calendar"></i> প্রকাশকাল: '+n.date;bodyEl.textContent=n.body;modal.classList.add('is-open');modal.setAttribute('aria-hidden','false');document.body.classList.add('notice-paper-open');const btn=modal.querySelector('.notice-paper-close');if(btn)btn.focus();};
+    grid.addEventListener('click',e=>{const card=e.target.closest('[data-notice-index]');if(card)open(card);});
+    grid.addEventListener('keydown',e=>{const card=e.target.closest('[data-notice-index]');if(card&&(e.key==='Enter'||e.key===' ')){e.preventDefault();open(card);}});
+    modal.querySelectorAll('[data-notice-close]').forEach(el=>el.addEventListener('click',close));
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('is-open'))close();});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initNoticePaper,{once:true});else initNoticePaper();
+})();
+</script>
+
+
+
+
+
+<script>
+/* Close navigation dropdowns when clicking elsewhere or pressing Escape. */
+(function(){
+  document.addEventListener('click',function(event){
+    if(event.target.closest('.nav-dropdown')) return;
+    document.querySelectorAll('.nav-dropdown.open').forEach(function(item){item.classList.remove('open');});
+  });
+  document.addEventListener('keydown',function(event){
+    if(event.key==='Escape') document.querySelectorAll('.nav-dropdown.open').forEach(function(item){item.classList.remove('open');});
+  });
+})();
+</script>
+
+
+<script>
+/* Animate dynamically rendered notices and the result portal when they enter the viewport. */
+(function(){
+  function attachDynamicReveal(){
+    const targets=document.querySelectorAll('#noticeBoardGrid .notice-box, .result-portal-card');
+    if(!('IntersectionObserver' in window)){
+      targets.forEach(el=>el.classList.add('is-visible'));
+      return;
+    }
+    const observer=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },{threshold:0.12,rootMargin:'0px 0px -35px 0px'});
+    targets.forEach((el,index)=>{
+      if(el.dataset.revealBound==='1') return;
+      el.dataset.revealBound='1';
+      el.classList.add('scroll-reveal-premium','reveal-zoom');
+      el.style.setProperty('--reveal-delay',Math.min(index,6)*70+'ms');
+      observer.observe(el);
+    });
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    attachDynamicReveal();
+    const grid=document.getElementById('noticeBoardGrid');
+    if(grid){
+      new MutationObserver(attachDynamicReveal).observe(grid,{childList:true,subtree:true});
+    }
+    setTimeout(attachDynamicReveal,250);
+  });
+})();
+</script>
+
+
+<script>
+/* DEMO PAYMENT SETTINGS. Replace these sample values with the school's approved fee schedule before launch. */
+const SCHOOL_DEMO_FEES = {
+  admission: 1500, monthly: {6:300,7:350,8:400,9:450,10:500}, exam: 800,
+  session: 500, registration: 300, idcard: 100, certificate: 200, other: 500
+};
+const SCHOOL_DEMO_FEE_LABELS = {admission:'ভর্তি ফি',monthly:'মাসিক বেতন',exam:'পরীক্ষার ফি',session:'সেশন চার্জ',registration:'রেজিস্ট্রেশন ফি',idcard:'আইডি কার্ড ফি',certificate:'সনদ / প্রশংসাপত্র ফি',other:'অন্যান্য ফি'};
+const SCHOOL_PAYMENT_LABELS = {bkash:'bKash (বিকাশ)',nagad:'Nagad (নগদ)',upay:'Upay (উপায়)',rocket:'Rocket (রকেট)',visa:'VISA Card',mastercard:'Mastercard'};
+let selectedSchoolPaymentMethod = '';
+function openSchoolPaymentCard(){const card=document.getElementById('schoolPaymentCard');if(!card)return;card.classList.add('is-open');card.setAttribute('aria-hidden','false');updateDemoFeeAmount();card.scrollIntoView({behavior:'smooth',block:'center'});}
+function closeSchoolPaymentCard(){const card=document.getElementById('schoolPaymentCard');if(!card)return;card.classList.remove('is-open');card.setAttribute('aria-hidden','true');}
+function updateDemoFeeAmount(){
+ const type=document.getElementById('demoFeeType').value, cls=document.getElementById('demoStudentClass').value;
+ const isMonthly=type==='monthly';document.getElementById('demoClassWrap').style.display=isMonthly?'block':'none';
+ const value=isMonthly?SCHOOL_DEMO_FEES.monthly[cls]:SCHOOL_DEMO_FEES[type];
+ document.getElementById('demoFeeAmount').textContent='৳ '+Number(value||0).toLocaleString('en-US');
+}
+function chooseSchoolPayment(method,button){
+ selectedSchoolPaymentMethod=method;
+ document.querySelectorAll('.school-payment-method').forEach(el=>el.classList.remove('is-selected'));
+ button.classList.add('is-selected');
+ document.getElementById('schoolPaymentSelected').textContent='নির্বাচিত মাধ্যম: '+SCHOOL_PAYMENT_LABELS[method];
+ const isWallet=['bkash','nagad','upay','rocket'].includes(method);
+ const label=document.getElementById('demoPayerLabel');
+ const input=document.getElementById('demoPayerPhone');
+ const note=document.getElementById('demoMethodNote');
+ if(isWallet){
+   label.textContent='যে '+SCHOOL_PAYMENT_LABELS[method]+' নম্বর থেকে পেমেন্ট করবেন *';
+   input.type='tel'; input.inputMode='numeric'; input.maxLength=15; input.placeholder='01XXXXXXXXX';
+   note.textContent='ডেমো ধাপ: নম্বরটি লিখে পেমেন্ট সম্পন্ন করুন। আসল OTP বা PIN এখানে দেবেন না; বাস্তব লেনদেনে সংশ্লিষ্ট প্রতিষ্ঠানের অনুমোদিত পেমেন্ট পেজ ব্যবহার হবে।';
+ }else{
+   label.textContent='কার্ডধারীর নাম *';
+   input.type='text'; input.inputMode='text'; input.maxLength=60; input.placeholder='কার্ডে লেখা নাম লিখুন';
+   note.textContent='ডেমো কার্ড ধাপ: শুধু কার্ডধারীর নাম লিখুন। আসল কার্ড নম্বর, মেয়াদ, CVV, OTP বা PIN এখানে দেবেন না।';
+ }
+ const box=document.getElementById('demoPaymentInstructions');
+ box.textContent=isWallet
+  ? SCHOOL_PAYMENT_LABELS[method]+' নির্বাচন করা হয়েছে। পরবর্তী ধাপে পেমেন্টকারীর মোবাইল নম্বর লিখে ডেমো পেমেন্ট সম্পন্ন করুন।'
+  : SCHOOL_PAYMENT_LABELS[method]+' নির্বাচন করা হয়েছে। পরবর্তী ধাপে কার্ডধারীর নাম লিখে ডেমো পেমেন্ট সম্পন্ন করুন।';
+ box.hidden=false;
+}
+function completeDemoSchoolPayment(){
+ const required=[['demoStudentName','শিক্ষার্থীর নাম'],['demoRoll','রোল নম্বর'],['demoGuardianPhone','অভিভাবকের মোবাইল'],['demoPayerPhone',(['visa','mastercard'].includes(selectedSchoolPaymentMethod)?'কার্ডধারীর নাম':'পেমেন্টকারীর মোবাইল নম্বর')]];
+ for(const [id,label] of required){const el=document.getElementById(id);if(!el.value.trim()){alert(label+' লিখুন।');el.focus();return;}}
+ if(!selectedSchoolPaymentMethod){alert('প্রথমে একটি পেমেন্ট মাধ্যম নির্বাচন করুন।');return;}
+ const type=document.getElementById('demoFeeType').value, cls=document.getElementById('demoStudentClass').value;
+ const amount=type==='monthly'?SCHOOL_DEMO_FEES.monthly[cls]:SCHOOL_DEMO_FEES[type];
+ if(!amount || amount<0){alert('এই খাতের ফি নির্ধারণ করা নেই।');return;}
+ const now=new Date(), ref='DEMO-'+now.getFullYear()+String(now.getMonth()+1).padStart(2,'0')+String(now.getDate()).padStart(2,'0')+'-'+Math.random().toString(36).slice(2,8).toUpperCase();
+ const put=(id,val)=>document.getElementById(id).textContent=val||'—';
+ put('demoReceiptNumber',ref);put('receiptStudentName',document.getElementById('demoStudentName').value.trim());put('receiptClass',document.getElementById('demoStudentClass').selectedOptions[0].text);put('receiptRoll',document.getElementById('demoRoll').value.trim());put('receiptStudentId',document.getElementById('demoStudentId').value.trim());put('receiptYear',document.getElementById('demoAcademicYear').value);put('receiptFeeType',SCHOOL_DEMO_FEE_LABELS[type]);put('receiptMethod',SCHOOL_PAYMENT_LABELS[selectedSchoolPaymentMethod]);put('receiptGuardianPhone',document.getElementById('demoGuardianPhone').value.trim());put('receiptReference',ref);put('receiptDate',now.toLocaleString('bn-BD'));put('receiptAmount','৳ '+Number(amount).toLocaleString('en-US'));
+ // Create the matching school-office copy; both copies contain identical receipt data.
+ const copies=document.getElementById('receiptCopies');
+ const oldOffice=copies.querySelector('.office-copy'); if(oldOffice)oldOffice.remove();
+ const student=document.getElementById('receiptPaper');
+ const office=student.cloneNode(true); office.removeAttribute('id'); office.classList.remove('student-copy'); office.classList.add('office-copy');
+ office.querySelectorAll('[id]').forEach(el=>el.removeAttribute('id'));
+ const label=office.querySelector('.receipt-copy-label'); if(label)label.textContent='বিদ্যালয় অফিস কপি';
+ const sign=office.querySelector('.receipt-sign'); if(sign)sign.textContent='বিদ্যালয়ের হিসাব শাখার জন্য';
+ copies.appendChild(office);
+ const section=document.getElementById('receiptResultSection');section.style.display='block';section.scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
+
 </body>
 </html>
