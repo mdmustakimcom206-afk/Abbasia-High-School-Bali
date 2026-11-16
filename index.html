@@ -1,0 +1,3627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Abbasia High School, Bali</title>
+
+<meta name="description"
+content="Official website of Abbasia High School, Bali">
+
+<meta name="theme-color" content="#0a7042">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</head>
+
+<body>
+
+<header class="main-header">
+
+    <div class="container header-inner">
+
+        <a href="#home" class="brand">
+
+            <div class="logo-box">
+                <img
+                    src="images/logo.jpg"
+                    alt="আব্বাছিয়া উচ্চ বিদ্যালয় লোগো"
+                    onerror="this.src='images/school.jpg'">
+            </div>
+
+            <div class="brand-text">
+                <h1>আব্বাছিয়া উচ্চ বিদ্যালয়, বালী</h1>
+                <p>শিক্ষা • শৃঙ্খলা • উন্নতি</p>
+            </div>
+
+        </a>
+
+        <div class="language-switch" aria-label="Choose website language">
+            <button type="button" class="lang-btn active" data-lang="en" aria-label="View website in English">EN</button>
+            <span class="lang-divider">|</span>
+            <button type="button" class="lang-btn" data-lang="bn" aria-label="বাংলায় ওয়েবসাইট দেখুন">বাংলা</button>
+        </div>
+
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <nav class="main-nav" id="mainNav">
+
+            <a href="#home">হোম</a>
+
+            <a href="#about">আমাদের সম্পর্কে</a>
+
+            <a href="#academic">শিক্ষা কার্যক্রম</a>
+
+            <div class="nav-dropdown">
+
+                <button class="dropdown-btn">
+                    তথ্যসমূহ
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+
+                <div class="dropdown-menu">
+
+                    <a href="#routine">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        ক্লাস রুটিন
+                    </a>
+
+                    <a href="#notice">
+                        <i class="fa-solid fa-bell"></i>
+                        নোটিশ বোর্ড
+                    </a>
+
+                </div>
+
+            </div>
+
+            <a href="#admission">অনলাইন ভর্তি</a>
+
+            <a href="#payment">পেমেন্ট</a>
+
+            <a href="#result">ফলাফল</a>
+
+            <div class="nav-dropdown">
+
+                <button class="dropdown-btn">
+                    শিক্ষক ও কর্মচারী
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+
+                <div class="dropdown-menu">
+
+                    <a href="#teachers">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                        শিক্ষকবৃন্দ
+                    </a>
+
+                    <a href="#staff">
+                        <i class="fa-solid fa-users"></i>
+                        কর্মচারীবৃন্দ
+                    </a>
+
+                </div>
+
+            </div>
+
+            <a href="#gallery">গ্যালারি</a>
+
+            <a href="#contact">যোগাযোগ</a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+<div class="top-notice" role="region" aria-label="School announcements">
+    <div class="ticker-shell">
+        <span class="ticker-label"><i class="fa-solid fa-bullhorn"></i> <b data-bn="সর্বশেষ বার্তা" data-en="LATEST">সর্বশেষ বার্তা</b></span>
+        <div class="ticker-window" aria-live="polite">
+            <span class="ticker-text" id="schoolTickerText">আব্বাছিয়া উচ্চ বিদ্যালয়, বালী — অফিসিয়াল ওয়েবসাইটে স্বাগতম</span>
+        </div>
+        <span class="ticker-live"><i></i> LIVE</span>
+    </div>
+</div>
+
+
+<script>
+
+/* =========================================================
+   HOMEPAGE SLIDER IMAGE LOCATION
+========================================================= */
+
+const SLIDER_IMAGES = [
+
+    "images/slider/slide-1.jpg",
+    "images/slider/slide-2.jpg",
+    "images/slider/slide-3.jpg",
+    "images/slider/slide-4.jpg",
+    "images/slider/slide-5.jpg",
+    "images/slider/slide-6.jpg",
+    "images/slider/slide-7.jpg",
+    "images/slider/slide-8.jpg"
+
+];
+
+
+/* =========================================================
+   TEACHERS
+========================================================= */
+
+const TEACHERS = [
+
+    {
+        name: "রহিছ",
+        designation: "প্রধান শিক্ষক",
+        image: "images/teachers/teacher-1.jpg"
+    },
+
+    {
+        name: "ইমন",
+        designation: "সহকারী প্রধান শিক্ষক",
+        image: "images/teachers/teacher-2.jpg"
+    },
+
+    {
+        name: "আলম",
+        designation: "সহকারী শিক্ষক",
+        image: "images/teachers/teacher-3.jpg"
+    },
+
+    {
+        name: "শিমুল",
+        designation: "সহকারী শিক্ষক",
+        image: "images/teachers/teacher-4.jpg"
+    },
+
+    {
+        name: "মোস্তাকিম",
+        designation: "সহকারী শিক্ষক",
+        image: "images/teachers/teacher-5.jpg"
+    },
+
+    {
+        name: "উজ্জল",
+        designation: "সহকারী শিক্ষক",
+        image: "images/teachers/teacher-6.jpg"
+    },
+
+    {
+        name: "কাওসার",
+        designation: "সহকারী শিক্ষক",
+        image: "images/teachers/teacher-7.jpg"
+    },
+
+    {
+        name: "নাজমুল",
+        designation: "সহকারী শিক্ষক",
+        image: "images/teachers/teacher-8.jpg"
+    },
+
+    {
+        name: "বাইজিদ",
+        designation: "সহকারী শিক্ষক",
+        image: "images/teachers/teacher-9.jpg"
+    },
+
+    {
+        name: "বাবু",
+        designation: "সহকারী শিক্ষক",
+        image: "images/teachers/teacher-10.jpg"
+    },
+
+    {
+        name: "অপূর্ব",
+        designation: "সহকারী শিক্ষক",
+        image: "images/teachers/teacher-11.jpg"
+    },
+
+    {
+        name: "পিয়াস",
+        designation: "সহকারী শিক্ষক",
+        image: "images/teachers/teacher-12.jpg"
+    },
+
+    {
+        name: "নাচিমা",
+        designation: "সহকারী শিক্ষক",
+        image: "images/teachers/teacher-13.jpg"
+    },
+
+    {
+        name: "সুমাইয়া",
+        designation: "সহকারী শিক্ষক",
+        image: "images/teachers/teacher-14.jpg"
+    },
+
+    {
+        name: "তানজিনা",
+        designation: "সহকারী শিক্ষক",
+        image: "images/teachers/teacher-15.jpg"
+    },
+
+    {
+        name: "ঋতু আক্তার",
+        designation: "সহকারী শিক্ষক",
+        image: "images/teachers/teacher-16.jpg"
+    },
+
+    {
+        name: "খাদিজা আক্তার",
+        designation: "সহকারী শিক্ষক",
+        image: "images/teachers/teacher-17.jpg"
+    }
+
+];
+
+
+/* =========================================================
+   STAFF
+========================================================= */
+
+const STAFF = [
+
+    {
+        name: "রাসেল",
+        designation: "অফিস সহকারী",
+        image: "images/staff-1.jpg"
+    },
+
+    {
+        name: "রাজ",
+        designation: "অফিস সহায়ক",
+        image: "images/staff-2.jpg"
+    },
+
+    {
+        name: "আকাশ",
+        designation: "নিরাপত্তা কর্মী",
+        image: "images/staff-3.jpg"
+    },
+
+    {
+        name: "জিহাদ",
+        designation: "পরিচ্ছন্নতাকর্মী",
+        image: "images/staff-4.jpg"
+    },
+
+    {
+        name: "মিম",
+        designation: "সহায়ক কর্মচারী",
+        image: "images/staff-5.jpg"
+    }
+
+];
+
+</script>
+
+
+<section class="hero" id="home">
+
+    <div class="hero-slider" id="heroSlider"></div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+            <i class="fa-solid fa-school"></i>
+            প্রতিষ্ঠিত: ১৯৬০ ইং.
+        </div>
+
+        <h2 class="hero-title">
+            আব্বাছিয়া উচ্চ বিদ্যালয়, বালী
+        </h2>
+
+        <p class="hero-tagline">
+            জ্ঞান অর্জন, স্বপ্নের বিকাশ, আগামীর নেতৃত্ব
+        </p>
+
+        <p class="hero-description">
+            শিক্ষা, শৃঙ্খলা ও নৈতিকতার আলোয় গড়ে উঠুক প্রতিটি শিক্ষার্থীর উজ্জ্বল ভবিষ্যৎ।
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#about" class="hero-btn primary explore-btn">
+                <i class="fa-solid fa-compass"></i>
+                বিদ্যালয় সম্পর্কে জানুন
+            </a>
+
+            <a href="#admission" class="hero-btn">
+                <i class="fa-solid fa-file-pen"></i>
+                অনলাইন ভর্তি আবেদন
+            </a>
+
+            <a href="#notice" class="hero-btn">
+                <i class="fa-solid fa-bell"></i>
+                নোটিশ বোর্ড
+            </a>
+
+            <a href="#result" class="hero-btn">
+                <i class="fa-solid fa-chart-column"></i>
+                ফলাফল
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="slider-dots" id="sliderDots"></div>
+
+</section>
+
+
+<section class="quick-section">
+
+    <div class="container quick-grid">
+
+        <div class="quick-card">
+            <div class="quick-icon">
+                <i class="fa-solid fa-calendar-check"></i>
+            </div>
+            <div>
+                <strong>১৯৬০ ইং.</strong>
+                <span>প্রতিষ্ঠাকাল</span>
+            </div>
+        </div>
+
+        <div class="quick-card">
+            <div class="quick-icon">
+                <i class="fa-solid fa-id-card"></i>
+            </div>
+            <div>
+                <strong>113142</strong>
+                <span>EIIN নম্বর</span>
+            </div>
+        </div>
+
+        <div class="quick-card">
+            <div class="quick-icon">
+                <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div>
+                <strong>নেত্রকোণা</strong>
+                <span>বিদ্যালয়ের ঠিকানা</span>
+            </div>
+        </div>
+
+        <div class="quick-card">
+            <div class="quick-icon">
+                <i class="fa-solid fa-user-group"></i>
+            </div>
+            <div>
+                <strong id="teacherCount">১৭ জন</strong>
+                <span>শিক্ষক</span>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section" id="about">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>আমাদের সম্পর্কে</span>
+
+            <h2>
+                আব্বাছিয়া উচ্চ বিদ্যালয়, বালী
+            </h2>
+
+            <p>
+                একটি সুন্দর, সুশৃঙ্খল ও আধুনিক শিক্ষা প্রতিষ্ঠান
+            </p>
+
+        </div>
+
+        <div class="about-grid">
+
+            <div class="about-image">
+
+                <img
+                    src="images/school.jpg"
+                    alt="আব্বাছিয়া উচ্চ বিদ্যালয়"
+                    onerror="this.src='images/logo.jpg'">
+
+                <div class="established-badge">
+                    <strong>১৯৬০</strong>
+                    <span>খ্রি.</span>
+                </div>
+
+            </div>
+
+            <div class="about-content">
+
+                <h3>
+                    জ্ঞান, নৈতিকতা ও শৃঙ্খলার সমন্বয়ে শিক্ষা
+                </h3>
+
+                <p>
+                    আব্বাছিয়া উচ্চ বিদ্যালয়, বালী একটি ঐতিহ্যবাহী
+                    শিক্ষা প্রতিষ্ঠান। শিক্ষার্থীদের মানসম্মত শিক্ষা,
+                    নৈতিক মূল্যবোধ, শৃঙ্খলা ও সুন্দর ভবিষ্যৎ গঠনের
+                    লক্ষ্যে প্রতিষ্ঠানটি কাজ করে যাচ্ছে।
+                </p>
+
+                <p>
+                    আধুনিক শিক্ষা ব্যবস্থার সঙ্গে তাল মিলিয়ে
+                    শিক্ষার্থীদের জ্ঞান, দক্ষতা ও সৃজনশীলতা বিকাশে
+                    বিদ্যালয়টি গুরুত্বপূর্ণ ভূমিকা পালন করছে।
+                </p>
+
+                <div class="about-points">
+
+                    <div>
+                        <i class="fa-solid fa-circle-check"></i>
+                        মানসম্মত শিক্ষা
+                    </div>
+
+                    <div>
+                        <i class="fa-solid fa-circle-check"></i>
+                        শৃঙ্খলাপূর্ণ পরিবেশ
+                    </div>
+
+                    <div>
+                        <i class="fa-solid fa-circle-check"></i>
+                        অভিজ্ঞ শিক্ষকবৃন্দ
+                    </div>
+
+                    <div>
+                        <i class="fa-solid fa-circle-check"></i>
+                        আধুনিক শিক্ষা ব্যবস্থা
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="principal-section">
+
+    <div class="container">
+
+        <div class="principal-card">
+
+            <div class="principal-photo">
+
+                <img
+                    src="images/head-teacher.jpg"
+                    alt="প্রধান শিক্ষক"
+                    onerror="this.src='images/school.jpg'">
+
+            </div>
+
+            <div class="principal-content">
+
+                <span class="small-label">
+                    প্রধান শিক্ষকের বাণী
+                </span>
+
+                <h2>
+                    শিক্ষার্থীরাই আমাদের ভবিষ্যৎ
+                </h2>
+
+                <p>
+                    শিক্ষা মানুষের জীবনের সবচেয়ে গুরুত্বপূর্ণ সম্পদ।
+                    একজন শিক্ষার্থীকে শুধু পরীক্ষায় ভালো ফলাফল করলেই
+                    হবে না; তাকে সৎ, দায়িত্বশীল, শৃঙ্খলাবোধসম্পন্ন
+                    ও মানবিক মানুষ হিসেবে গড়ে উঠতে হবে।
+                </p>
+
+                <p>
+                    আব্বাছিয়া উচ্চ বিদ্যালয় শিক্ষার্থীদের সুন্দর
+                    ভবিষ্যৎ গঠনে সর্বদা আন্তরিকভাবে কাজ করে যাচ্ছে।
+                </p>
+
+                <strong>
+                    — প্রধান শিক্ষক
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section light-bg" id="academic">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>শিক্ষা কার্যক্রম</span>
+
+            <h2>আমাদের শিক্ষা ব্যবস্থা</h2>
+
+            <p>
+                শিক্ষার্থীদের সার্বিক উন্নয়নে বিভিন্ন শিক্ষা কার্যক্রম
+            </p>
+
+        </div>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+                <h3>মানসম্মত পাঠদান</h3>
+                <p>
+                    অভিজ্ঞ শিক্ষকবৃন্দের মাধ্যমে নিয়মিত ও মানসম্মত পাঠদান।
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fa-solid fa-flask"></i>
+                </div>
+                <h3>ব্যবহারিক শিক্ষা</h3>
+                <p>
+                    শিক্ষার্থীদের বাস্তবভিত্তিক জ্ঞান ও দক্ষতা বৃদ্ধির সুযোগ।
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fa-solid fa-person-running"></i>
+                </div>
+                <h3>সহশিক্ষা কার্যক্রম</h3>
+                <p>
+                    খেলাধুলা ও বিভিন্ন সহশিক্ষা কার্যক্রমে অংশগ্রহণের সুযোগ।
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fa-solid fa-award"></i>
+                </div>
+                <h3>ফলাফল ও সাফল্য</h3>
+                <p>
+                    শিক্ষার্থীদের ভালো ফলাফল ও সাফল্যের জন্য নিয়মিত সহযোগিতা।
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section" id="routine">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>ক্লাস রুটিন</span>
+
+            <h2>শ্রেণিভিত্তিক রুটিন</h2>
+
+            <p>
+                প্রয়োজনীয় শ্রেণির রুটিন দেখতে নিচের বাটনে ক্লিক করুন
+            </p>
+
+        </div>
+
+        <div class="routine-grid">
+
+            <a href="routines/class-6.pdf" target="_blank">
+                <i class="fa-solid fa-file-pdf"></i>
+                <span>৬ষ্ঠ শ্রেণি</span>
+            </a>
+
+            <a href="routines/class-7.pdf" target="_blank">
+                <i class="fa-solid fa-file-pdf"></i>
+                <span>৭ম শ্রেণি</span>
+            </a>
+
+            <a href="routines/class-8.pdf" target="_blank">
+                <i class="fa-solid fa-file-pdf"></i>
+                <span>৮ম শ্রেণি</span>
+            </a>
+
+            <a href="routines/class-9.pdf" target="_blank">
+                <i class="fa-solid fa-file-pdf"></i>
+                <span>৯ম শ্রেণি</span>
+            </a>
+
+            <a href="routines/class-10.pdf" target="_blank">
+                <i class="fa-solid fa-file-pdf"></i>
+                <span>১০ম শ্রেণি</span>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section light-bg" id="notice">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>নোটিশ বোর্ড</span>
+
+            <h2>সর্বশেষ নোটিশ</h2>
+
+        </div>
+
+        <div class="notice-box">
+
+            <div class="notice-icon">
+                <i class="fa-solid fa-bell"></i>
+            </div>
+
+            <div class="notice-content">
+
+                <h3>
+                    বার্ষিক পরীক্ষা সংক্রান্ত বিজ্ঞপ্তি
+                </h3>
+
+                <p>
+                    ২০২৬ সালের বার্ষিক পরীক্ষা আগামী
+                    <strong>১৫ ডিসেম্বর ২০২৬</strong>
+                    থেকে শুরু হবে।
+                </p>
+
+                <span>
+                    <i class="fa-regular fa-calendar"></i>
+                    ২০২৬
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section" id="admission" hidden>
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>অনলাইন ভর্তি</span>
+
+            <h2>অনলাইন ভর্তি আবেদন</h2>
+
+            <p>
+                ধাপে ধাপে আবেদন সম্পন্ন করুন
+            </p>
+
+        </div>
+
+        <div class="step-indicator">
+
+            <div class="step active" data-step="1">
+                <span>১</span>
+                <small>শিক্ষার্থী</small>
+            </div>
+
+            <div class="step" data-step="2">
+                <span>২</span>
+                <small>ঠিকানা</small>
+            </div>
+
+            <div class="step" data-step="3">
+                <span>৩</span>
+                <small>অভিভাবক</small>
+            </div>
+
+            <div class="step" data-step="4">
+                <span>৪</span>
+                <small>নিশ্চিত</small>
+            </div>
+
+        </div>
+
+
+        <form id="admissionForm" class="admission-form">
+
+            <div class="form-step active" data-step="1">
+
+                <div class="form-card">
+
+                    <div class="form-card-title">
+                        <i class="fa-solid fa-user-graduate"></i>
+                        শিক্ষার্থীর তথ্য
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="input-group full">
+                            <label>
+                                শিক্ষার্থীর পূর্ণ নাম *
+                            </label>
+
+                            <input
+                                type="text"
+                                id="studentName"
+                                required
+                                placeholder="শিক্ষার্থীর নাম লিখুন">
+                        </div>
+
+                        <div class="input-group">
+
+                            <label>ভর্তির শ্রেণি *</label>
+
+                            <select id="className" required>
+
+                                <option value="">
+                                    শ্রেণি নির্বাচন করুন
+                                </option>
+
+                                <option>৬ষ্ঠ শ্রেণি</option>
+                                <option>৭ম শ্রেণি</option>
+                                <option>৮ম শ্রেণি</option>
+                                <option>৯ম শ্রেণি</option>
+                                <option>১০ম শ্রেণি</option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="input-group">
+
+                            <label>লিঙ্গ *</label>
+
+                            <select id="gender" required>
+
+                                <option value="">
+                                    নির্বাচন করুন
+                                </option>
+
+                                <option>ছেলে</option>
+                                <option>মেয়ে</option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="input-group full">
+
+                            <label>
+                                জন্ম নিবন্ধন নম্বর *
+                            </label>
+
+                            <input
+                                type="text"
+                                id="birthRegistration"
+                                required
+                                placeholder="জন্ম নিবন্ধন নম্বর">
+
+                        </div>
+
+                        <div class="input-group full">
+
+                            <label>
+                                জন্ম তারিখ *
+                            </label>
+
+                            <div class="date-grid">
+
+                                <select id="birthDay" required>
+                                    <option value="">দিন</option>
+                                </select>
+
+                                <select id="birthMonth" required>
+
+                                    <option value="">মাস</option>
+
+                                    <option value="01">জানুয়ারি</option>
+                                    <option value="02">ফেব্রুয়ারি</option>
+                                    <option value="03">মার্চ</option>
+                                    <option value="04">এপ্রিল</option>
+                                    <option value="05">মে</option>
+                                    <option value="06">জুন</option>
+                                    <option value="07">জুলাই</option>
+                                    <option value="08">আগস্ট</option>
+                                    <option value="09">সেপ্টেম্বর</option>
+                                    <option value="10">অক্টোবর</option>
+                                    <option value="11">নভেম্বর</option>
+                                    <option value="12">ডিসেম্বর</option>
+
+                                </select>
+
+                                <select id="birthYear" required>
+                                    <option value="">বছর</option>
+                                </select>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="input-group full">
+
+                            <label>
+                                শিক্ষার্থীর ছবি *
+                            </label>
+
+                            <div class="photo-upload-box">
+
+                                <input
+                                    type="file"
+                                    id="studentPhoto"
+                                    accept="image/*"
+                                    required>
+
+                                <div class="photo-help">
+
+                                    <i class="fa-solid fa-camera"></i>
+
+                                    <strong>
+                                        শুধু 300 × 300 Pixel ছবি
+                                    </strong>
+
+                                    <span>
+                                        ছবির আকার অবশ্যই 300×300 হতে হবে
+                                    </span>
+
+                                </div>
+
+                                <img
+                                    id="studentPhotoPreview"
+                                    class="photo-preview"
+                                    alt="ছবির প্রিভিউ">
+
+                            </div>
+
+                            <small id="photoMessage"></small>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-actions">
+
+                        <button
+                            type="button"
+                            class="next-btn"
+                            data-next="2">
+
+                            পরবর্তী ধাপ
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-step" data-step="2">
+
+                <div class="form-card">
+
+                    <div class="form-card-title">
+                        <i class="fa-solid fa-location-dot"></i>
+                        ঠিকানা
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="input-group">
+
+                            <label>বিভাগ *</label>
+
+                            <select id="division" required>
+
+                                <option value="">
+                                    বিভাগ নির্বাচন করুন
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="input-group">
+
+                            <label>জেলা *</label>
+
+                            <select id="district" required disabled>
+
+                                <option value="">
+                                    প্রথমে বিভাগ নির্বাচন করুন
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="input-group">
+
+                            <label>উপজেলা / থানা *</label>
+
+                            <select id="upazila" required disabled>
+
+                                <option value="">
+                                    প্রথমে জেলা নির্বাচন করুন
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="input-group">
+
+                            <label>গ্রাম / মহল্লা *</label>
+
+                            <input
+                                type="text"
+                                id="village"
+                                required
+                                placeholder="গ্রাম / মহল্লার নাম">
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-actions">
+
+                        <button
+                            type="button"
+                            class="back-btn"
+                            data-back="1">
+
+                            <i class="fa-solid fa-arrow-left"></i>
+                            পূর্ববর্তী
+
+                        </button>
+
+                        <button
+                            type="button"
+                            class="next-btn"
+                            data-next="3">
+
+                            পরবর্তী ধাপ
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-step" data-step="3">
+
+                <div class="form-card">
+
+                    <div class="form-card-title">
+                        <i class="fa-solid fa-users"></i>
+                        অভিভাবকের তথ্য
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="input-group">
+
+                            <label>পিতার নাম *</label>
+
+                            <input
+                                type="text"
+                                id="fatherName"
+                                required
+                                placeholder="পিতার নাম">
+
+                        </div>
+
+                        <div class="input-group">
+
+                            <label>পিতার NID</label>
+
+                            <input
+                                type="text"
+                                id="fatherNid"
+                                placeholder="পিতার NID নম্বর">
+
+                        </div>
+
+                        <div class="input-group">
+
+                            <label>মাতার নাম *</label>
+
+                            <input
+                                type="text"
+                                id="motherName"
+                                required
+                                placeholder="মাতার নাম">
+
+                        </div>
+
+                        <div class="input-group">
+
+                            <label>মাতার NID</label>
+
+                            <input
+                                type="text"
+                                id="motherNid"
+                                placeholder="মাতার NID নম্বর">
+
+                        </div>
+
+                        <div class="input-group">
+
+                            <label>অভিভাবকের মোবাইল *</label>
+
+                            <input
+                                type="tel"
+                                id="guardianPhone"
+                                required
+                                placeholder="01XXXXXXXXX">
+
+                        </div>
+
+                        <div class="input-group">
+
+                            <label>সম্পর্ক *</label>
+
+                            <select id="guardianRelation" required>
+
+                                <option value="">
+                                    নির্বাচন করুন
+                                </option>
+
+                                <option>পিতা</option>
+                                <option>মাতা</option>
+                                <option>ভাই</option>
+                                <option>বোন</option>
+                                <option>অন্যান্য</option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-actions">
+
+                        <button
+                            type="button"
+                            class="back-btn"
+                            data-back="2">
+
+                            <i class="fa-solid fa-arrow-left"></i>
+                            পূর্ববর্তী
+
+                        </button>
+
+                        <button
+                            type="button"
+                            class="next-btn"
+                            data-next="4">
+
+                            পরবর্তী ধাপ
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-step" data-step="4">
+
+                <div class="form-card">
+
+                    <div class="form-card-title">
+                        <i class="fa-solid fa-circle-check"></i>
+                        আবেদন নিশ্চিত করুন
+                    </div>
+
+                    <div class="confirmation-box">
+
+                        <div class="confirmation-icon">
+                            <i class="fa-solid fa-file-signature"></i>
+                        </div>
+
+                        <h3>
+                            আবেদন জমা দেওয়ার আগে তথ্য যাচাই করুন
+                        </h3>
+
+                        <p>
+                            আপনার দেওয়া সব তথ্য সঠিক হলে নিচের
+                            সম্মতিতে টিক দিয়ে আবেদন জমা দিন।
+                        </p>
+
+                        <label class="agreement">
+
+                            <input
+                                type="checkbox"
+                                id="agreement"
+                                required>
+
+                            <span>
+                                আমি ঘোষণা করছি যে, উপরে দেওয়া সকল তথ্য
+                                সঠিক ও সত্য।
+                            </span>
+
+                        </label>
+
+                    </div>
+
+                    <div class="form-actions">
+
+                        <button
+                            type="button"
+                            class="back-btn"
+                            data-back="3">
+
+                            <i class="fa-solid fa-arrow-left"></i>
+                            পূর্ববর্তী
+
+                        </button>
+
+                        <button
+                            type="submit"
+                            class="submit-btn">
+
+                            <i class="fa-solid fa-paper-plane"></i>
+                            আবেদন জমা দিন
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+
+
+        <div class="saved-application">
+
+            <h3>
+                <i class="fa-solid fa-magnifying-glass"></i>
+                আগের আবেদন বের করুন
+            </h3>
+
+            <p>
+                এই ডিভাইসে আগে আবেদন করা থাকলে আবেদনটি দেখতে পারবেন।
+            </p>
+
+            <button
+                type="button"
+                id="loadApplicationBtn"
+                class="outline-btn">
+
+                আবেদন দেখুন
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section
+    class="application-result-section"
+    id="applicationResultSection"
+    style="display:none;">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>আবেদন সম্পন্ন</span>
+
+            <h2>আপনার আবেদনপত্র</h2>
+
+        </div>
+
+        <div class="paper-actions">
+
+            <button
+                type="button"
+                id="downloadApplicationPdf"
+                class="pdf-btn">
+
+                <i class="fa-solid fa-file-pdf"></i>
+                PDF ডাউনলোড
+
+            </button>
+
+            <button
+                type="button"
+                id="printApplication"
+                class="print-btn">
+
+                <i class="fa-solid fa-print"></i>
+                প্রিন্ট করুন
+
+            </button>
+
+        </div>
+
+
+        <div class="application-paper" id="applicationPaper">
+
+            <div class="paper-watermark">
+
+                <img
+                    src="images/logo.jpg"
+                    alt="লোগো"
+                    onerror="this.src='images/school.jpg'">
+
+            </div>
+
+            <div class="paper-content">
+
+                <div class="paper-header">
+
+                    <img
+                        src="images/logo.jpg"
+                        alt="স্কুল লোগো"
+                        onerror="this.src='images/school.jpg'">
+
+                    <div>
+
+                        <h1>
+                            আব্বাছিয়া উচ্চ বিদ্যালয়, বালী
+                        </h1>
+
+                        <p>
+                            প্রতিষ্ঠিত: ১৯৬০ ইং.
+                        </p>
+
+                        <h2>
+                            অনলাইন ভর্তি আবেদনপত্র
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="application-number-row">
+
+                    <span>
+                        আবেদন নম্বর:
+                        <strong id="resultApplicationNumber"></strong>
+                    </span>
+
+                    <span>
+                        তারিখ:
+                        <strong id="resultApplicationDate"></strong>
+                    </span>
+
+                </div>
+
+
+                <div class="paper-student-top">
+
+                    <div class="paper-table-area">
+
+                        <table>
+
+                            <tr>
+                                <th>শিক্ষার্থীর নাম</th>
+                                <td id="resultStudentName"></td>
+                            </tr>
+
+                            <tr>
+                                <th>ভর্তির শ্রেণি</th>
+                                <td id="resultClass"></td>
+                            </tr>
+
+                            <tr>
+                                <th>লিঙ্গ</th>
+                                <td id="resultGender"></td>
+                            </tr>
+
+                            <tr>
+                                <th>জন্ম নিবন্ধন</th>
+                                <td id="resultBirthRegistration"></td>
+                            </tr>
+
+                            <tr>
+                                <th>জন্ম তারিখ</th>
+                                <td id="resultBirthDate"></td>
+                            </tr>
+
+                        </table>
+
+                    </div>
+
+                    <div class="paper-student-photo">
+
+                        <img
+                            id="resultStudentPhoto"
+                            alt="শিক্ষার্থীর ছবি">
+
+                    </div>
+
+                </div>
+
+
+                <div class="paper-section-title">
+                    ঠিকানা
+                </div>
+
+                <table>
+
+                    <tr>
+                        <th>বিভাগ</th>
+                        <td id="resultDivision"></td>
+
+                        <th>জেলা</th>
+                        <td id="resultDistrict"></td>
+                    </tr>
+
+                    <tr>
+                        <th>উপজেলা / থানা</th>
+                        <td id="resultUpazila"></td>
+
+                        <th>গ্রাম / মহল্লা</th>
+                        <td id="resultVillage"></td>
+                    </tr>
+
+                </table>
+
+
+                <div class="paper-section-title">
+                    অভিভাবকের তথ্য
+                </div>
+
+                <table>
+
+                    <tr>
+                        <th>পিতার নাম</th>
+                        <td id="resultFatherName"></td>
+
+                        <th>পিতার NID</th>
+                        <td id="resultFatherNid"></td>
+                    </tr>
+
+                    <tr>
+                        <th>মাতার নাম</th>
+                        <td id="resultMotherName"></td>
+
+                        <th>মাতার NID</th>
+                        <td id="resultMotherNid"></td>
+                    </tr>
+
+                    <tr>
+                        <th>মোবাইল</th>
+                        <td id="resultGuardianPhone"></td>
+
+                        <th>সম্পর্ক</th>
+                        <td id="resultGuardianRelation"></td>
+                    </tr>
+
+                </table>
+
+
+                <div class="paper-footer-note">
+
+                    <p>
+                        
+                    </p>
+
+                </div>
+
+
+                <div class="signature-row">
+
+                    <div>
+                        অভিভাবকের স্বাক্ষর
+                    </div>
+
+                    <div>
+                        বিদ্যালয় কর্তৃপক্ষ
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section light-bg" id="payment" hidden>
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>অনলাইন পেমেন্ট</span>
+
+            <h2>ভর্তি ফি প্রদান</h2>
+
+            <p>
+                আবেদন নম্বর বা জন্মসনদ/বয়সের তথ্য প্রয়োজন নেই।
+            </p>
+
+        </div>
+
+
+        <div class="payment-layout">
+
+            <div class="payment-info">
+
+                <div class="payment-brand">
+                    <i class="fa-solid fa-wallet"></i>
+                    <h3>পেমেন্ট তথ্য</h3>
+                </div>
+
+                <div class="payment-row">
+
+                    <span>পেমেন্ট নম্বর</span>
+
+                    <strong>
+                        01786938377
+                    </strong>
+
+                </div>
+
+                <div class="payment-row">
+
+                    <span>ভর্তি ফি</span>
+
+                    <strong>
+                        ৳ 500
+                    </strong>
+
+                </div>
+
+                <div class="payment-note">
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                    <span>
+                        টাকা পাঠানোর পর নিচের ফর্মে প্রেরকের নম্বর
+                        ও Transaction ID দিন।
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <form id="paymentForm" class="payment-form">
+
+                <div class="form-card">
+
+                    <div class="form-card-title">
+                        <i class="fa-solid fa-money-bill-transfer"></i>
+                        পেমেন্টের তথ্য
+                    </div>
+
+                    <div class="input-group">
+
+                        <label>
+                            পেমেন্ট পদ্ধতি *
+                        </label>
+
+                        <select id="paymentMethod" required>
+
+                            <option value="">
+                                নির্বাচন করুন
+                            </option>
+
+                            <option value="bKash">
+                                bKash
+                            </option>
+
+                            <option value="Nagad">
+                                Nagad
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label>
+                            যে নম্বর থেকে টাকা পাঠিয়েছেন *
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="senderNumber"
+                            required
+                            placeholder="01XXXXXXXXX">
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label>
+                            Transaction ID *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="transactionId"
+                            required
+                            placeholder="Transaction ID">
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label>
+                            পরিমাণ
+                        </label>
+
+                        <input
+                            type="text"
+                            value="৳ 500"
+                            readonly>
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="submit-btn payment-submit">
+
+                        <i class="fa-solid fa-receipt"></i>
+                        পেমেন্ট রিসিট তৈরি করুন
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section
+    class="receipt-result-section"
+    id="receiptResultSection"
+    style="display:none;">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>পেমেন্ট সম্পন্ন</span>
+
+            <h2>পেমেন্ট রিসিট</h2>
+
+        </div>
+
+        <div class="receipt-actions">
+
+            <button
+                type="button"
+                id="printReceipt"
+                class="print-btn">
+
+                <i class="fa-solid fa-print"></i>
+                রিসিট প্রিন্ট করুন
+
+            </button>
+
+        </div>
+
+
+        <div class="receipt-paper" id="receiptPaper">
+
+            <div class="receipt-copy">
+
+                <div class="receipt-copy-label">
+                    অফিস কপি
+                </div>
+
+                <div class="receipt-header">
+
+                    <img
+                        src="images/logo.jpg"
+                        alt="লোগো"
+                        onerror="this.src='images/school.jpg'">
+
+                    <div>
+
+                        <h2>
+                            আব্বাছিয়া উচ্চ বিদ্যালয়, বালী
+                        </h2>
+
+                        <p>
+                            পেমেন্ট রিসিট
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="receipt-table">
+
+                    <div>
+                        <span>পেমেন্ট পদ্ধতি</span>
+                        <strong id="receiptMethod1"></strong>
+                    </div>
+
+                    <div>
+                        <span>প্রেরকের নম্বর</span>
+                        <strong id="receiptSender1"></strong>
+                    </div>
+
+                    <div>
+                        <span>Transaction ID</span>
+                        <strong id="receiptTransaction1"></strong>
+                    </div>
+
+                    <div>
+                        <span>তারিখ</span>
+                        <strong id="receiptDate1"></strong>
+                    </div>
+
+                    <div class="total">
+                        <span>মোট</span>
+                        <strong>৳ 500</strong>
+                    </div>
+
+                </div>
+
+                <div class="receipt-sign">
+                    অনুমোদিত স্বাক্ষর
+                </div>
+
+            </div>
+
+
+            <div class="receipt-divider"></div>
+
+
+            <div class="receipt-copy">
+
+                <div class="receipt-copy-label">
+                    শিক্ষার্থী কপি
+                </div>
+
+                <div class="receipt-header">
+
+                    <img
+                        src="images/logo.jpg"
+                        alt="লোগো"
+                        onerror="this.src='images/school.jpg'">
+
+                    <div>
+
+                        <h2>
+                            আব্বাছিয়া উচ্চ বিদ্যালয়, বালী
+                        </h2>
+
+                        <p>
+                            পেমেন্ট রিসিট
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="receipt-table">
+
+                    <div>
+                        <span>পেমেন্ট পদ্ধতি</span>
+                        <strong id="receiptMethod2"></strong>
+                    </div>
+
+                    <div>
+                        <span>প্রেরকের নম্বর</span>
+                        <strong id="receiptSender2"></strong>
+                    </div>
+
+                    <div>
+                        <span>Transaction ID</span>
+                        <strong id="receiptTransaction2"></strong>
+                    </div>
+
+                    <div>
+                        <span>তারিখ</span>
+                        <strong id="receiptDate2"></strong>
+                    </div>
+
+                    <div class="total">
+                        <span>মোট</span>
+                        <strong>৳ 500</strong>
+                    </div>
+
+                </div>
+
+                <div class="receipt-sign">
+                    অনুমোদিত স্বাক্ষর
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section" id="result">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>ফলাফল</span>
+
+            <h2>ফলাফল দেখুন</h2>
+
+            <p>
+                ফলাফল প্রকাশিত হলে এখানে ফলাফল সংক্রান্ত তথ্য দেওয়া হবে।
+            </p>
+
+        </div>
+
+        <div class="result-placeholder">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            <h3>
+                ফলাফল বিভাগ
+            </h3>
+
+            <p>
+                ফলাফল প্রকাশের পর এখানে প্রয়োজনীয় লিংক যুক্ত করা যাবে।
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section light-bg" id="teachers">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>শিক্ষকবৃন্দ</span>
+
+            <h2>আমাদের শিক্ষকবৃন্দ</h2>
+
+            <p>
+                অভিজ্ঞ ও নিবেদিতপ্রাণ শিক্ষকবৃন্দ
+            </p>
+
+        </div>
+
+        <div
+            class="people-grid teachers-grid"
+            id="teachersGrid">
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section" id="staff">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>কর্মচারীবৃন্দ</span>
+
+            <h2>আমাদের কর্মচারীবৃন্দ</h2>
+
+            <p>
+                বিদ্যালয়ের দৈনন্দিন কার্যক্রমে নিয়োজিত কর্মচারীবৃন্দ
+            </p>
+
+        </div>
+
+        <div
+            class="people-grid staff-grid"
+            id="staffGrid">
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section light-bg" id="gallery">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>ফটো ও ভিডিও গ্যালারি</span>
+
+            <h2>বিদ্যালয়ের স্মৃতি ও কার্যক্রম</h2>
+
+        </div>
+
+
+        <div class="gallery-grid">
+
+            <div class="gallery-item">
+                <img src="images/school.jpg" alt="বিদ্যালয়">
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/images (1).jpg" alt="বিদ্যালয়">
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/images (2).jpg" alt="বিদ্যালয়">
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/images (4).jpg" alt="বিদ্যালয়">
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/images (5).jpg" alt="বিদ্যালয়">
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/images (6).jpg" alt="বিদ্যালয়">
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/images (7).jpg" alt="বিদ্যালয়">
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/download.webp" alt="বিদ্যালয়">
+            </div>
+
+        </div>
+
+        <div class="video-gallery-heading">
+            <span class="video-gallery-kicker">ভিডিও গ্যালারি</span>
+            <h3>বিদ্যালয়ের ভিডিও দেখুন</h3>
+        </div>
+
+        <div class="video-gallery-grid">
+            <article class="video-gallery-card">
+                <div class="video-frame">
+                    <video controls preload="metadata" playsinline poster="images/school.jpg">
+                        <source src="videos/video-1.mp4" type="video/mp4">
+                        আপনার ব্রাউজার ভিডিও চালাতে সমর্থ নয়।
+                    </video>
+                </div>
+                <div class="video-card-caption">
+                    <span class="video-number">ভিডিও ০১</span>
+                    <h4>বিদ্যালয়ের ভিডিও</h4>
+                </div>
+            </article>
+
+            <article class="video-gallery-card">
+                <div class="video-frame">
+                    <video controls preload="metadata" playsinline poster="images/school.jpg">
+                        <source src="videos/video-2.mp4" type="video/mp4">
+                        আপনার ব্রাউজার ভিডিও চালাতে সমর্থ নয়।
+                    </video>
+                </div>
+                <div class="video-card-caption">
+                    <span class="video-number">ভিডিও ০২</span>
+                    <h4>বিদ্যালয়ের কার্যক্রম</h4>
+                </div>
+            </article>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section contact-section" id="contact">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>যোগাযোগ</span>
+
+            <h2>আমাদের সাথে যোগাযোগ করুন</h2>
+
+        </div>
+
+
+        <div class="contact-grid">
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+
+                <h3>ঠিকানা</h3>
+
+                <p>
+                    নেত্রকোণা সদর, নেত্রকোণা
+                </p>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+
+                <h3>ফোন</h3>
+
+                <p>
+                    01786938377
+                </p>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+
+                <h3>ই-মেইল</h3>
+
+                <p>
+                    mdmustakimcom206@gmail.com
+                </p>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </div>
+
+                <h3>Facebook</h3>
+
+                <a
+                    href="https://www.facebook.com/share/1HtzAT5TmM/"
+                    target="_blank">
+
+                    Facebook Page
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer class="footer">
+
+    <div class="container footer-inner">
+
+        <div>
+
+            <h3>
+                আব্বাছিয়া উচ্চ বিদ্যালয়, বালী
+            </h3>
+
+            <p>
+                শিক্ষা • শৃঙ্খলা • উন্নতি
+            </p>
+
+        </div>
+
+        <div>
+
+            <p>
+                © ২০২৬ আব্বাছিয়া উচ্চ বিদ্যালয়, বালী
+            </p>
+
+            <small>
+                সর্বস্বত্ব সংরক্ষিত
+            </small>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+const mainNav = document.getElementById("mainNav");
+
+mobileMenuBtn.addEventListener("click", function(){
+
+    mainNav.classList.toggle("show");
+
+    const icon = mobileMenuBtn.querySelector("i");
+
+    if(mainNav.classList.contains("show")){
+        icon.className = "fa-solid fa-xmark";
+    }else{
+        icon.className = "fa-solid fa-bars";
+    }
+
+});
+
+
+document.querySelectorAll(".main-nav a").forEach(link => {
+
+    link.addEventListener("click", function(){
+
+        mainNav.classList.remove("show");
+
+        const icon = mobileMenuBtn.querySelector("i");
+        icon.className = "fa-solid fa-bars";
+
+    });
+
+});
+
+
+document.querySelectorAll(".dropdown-btn").forEach(btn => {
+
+    btn.addEventListener("click", function(e){
+
+        e.preventDefault();
+
+        const parent = btn.closest(".nav-dropdown");
+
+        document.querySelectorAll(".nav-dropdown").forEach(item => {
+
+            if(item !== parent){
+                item.classList.remove("open");
+            }
+
+        });
+
+        parent.classList.toggle("open");
+
+    });
+
+});
+
+
+const heroSlider = document.getElementById("heroSlider");
+const sliderDots = document.getElementById("sliderDots");
+
+let currentSlide = 0;
+let sliderTimer = null;
+
+
+function createSlider(){
+
+    heroSlider.innerHTML = "";
+    sliderDots.innerHTML = "";
+
+    SLIDER_IMAGES.forEach((image, index) => {
+
+        const slide = document.createElement("div");
+
+        slide.className =
+            "hero-slide " +
+            (index === 0 ? "active" : "");
+
+        slide.innerHTML = `
+            <img
+                src="${image}"
+                alt="বিদ্যালয়ের ছবি"
+                onerror="this.src='images/school.jpg'">
+        `;
+
+        heroSlider.appendChild(slide);
+
+
+        const dot = document.createElement("button");
+
+        dot.className =
+            "slider-dot " +
+            (index === 0 ? "active" : "");
+
+        dot.setAttribute(
+            "aria-label",
+            "Slide " + (index + 1)
+        );
+
+        dot.addEventListener("click", function(){
+
+            currentSlide = index;
+            showSlide(currentSlide);
+            restartSlider();
+
+        });
+
+        sliderDots.appendChild(dot);
+
+    });
+
+}
+
+
+function showSlide(index){
+
+    const slides =
+        document.querySelectorAll(".hero-slide");
+
+    const dots =
+        document.querySelectorAll(".slider-dot");
+
+    if(!slides.length) return;
+
+    slides.forEach(slide => {
+        slide.classList.remove("active");
+    });
+
+    dots.forEach(dot => {
+        dot.classList.remove("active");
+    });
+
+    slides[index].classList.add("active");
+    dots[index].classList.add("active");
+
+}
+
+
+function nextSlide(){
+
+    currentSlide++;
+
+    if(currentSlide >= SLIDER_IMAGES.length){
+        currentSlide = 0;
+    }
+
+    showSlide(currentSlide);
+
+}
+
+
+function restartSlider(){
+
+    clearInterval(sliderTimer);
+
+    sliderTimer = setInterval(
+        nextSlide,
+        5000
+    );
+
+}
+
+
+createSlider();
+restartSlider();
+
+
+const teachersGrid =
+    document.getElementById("teachersGrid");
+
+
+function renderTeachers(){
+
+    teachersGrid.innerHTML = "";
+
+    TEACHERS.forEach((teacher, index) => {
+
+        const card =
+            document.createElement("div");
+
+        card.className = "person-card";
+
+        card.innerHTML = `
+
+            <div class="person-photo-wrap">
+
+                <div class="person-photo">
+
+                    <img
+                        src="${teacher.image}"
+                        alt="${teacher.name}"
+                        loading="lazy"
+                        onerror="this.src='images/school.jpg'">
+
+                </div>
+
+                <div class="person-number">
+                    ${String(index + 1).padStart(2,"0")}
+                </div>
+
+            </div>
+
+            <div class="person-info">
+
+                <h3>
+                    ${teacher.name}
+                </h3>
+
+                <p>
+                    ${teacher.designation}
+                </p>
+
+            </div>
+
+        `;
+
+        teachersGrid.appendChild(card);
+
+    });
+
+
+    document.getElementById("teacherCount").textContent =
+        TEACHERS.length + " জন";
+
+}
+
+
+renderTeachers();
+
+
+const staffGrid =
+    document.getElementById("staffGrid");
+
+
+function renderStaff(){
+
+    staffGrid.innerHTML = "";
+
+    STAFF.forEach((person, index) => {
+
+        const card =
+            document.createElement("div");
+
+        card.className = "person-card staff-card";
+
+        card.innerHTML = `
+
+            <div class="person-photo-wrap">
+
+                <div class="person-photo">
+
+                    <img
+                        src="${person.image}"
+                        alt="${person.name}"
+                        loading="lazy"
+                        onerror="this.src='images/school.jpg'">
+
+                </div>
+
+                <div class="person-number">
+                    ${String(index + 1).padStart(2,"0")}
+                </div>
+
+            </div>
+
+            <div class="person-info">
+
+                <h3>
+                    ${person.name}
+                </h3>
+
+                <p>
+                    ${person.designation}
+                </p>
+
+            </div>
+
+        `;
+
+        staffGrid.appendChild(card);
+
+    });
+
+}
+
+
+renderStaff();
+
+
+const birthDay =
+    document.getElementById("birthDay");
+
+
+for(let i = 1; i <= 31; i++){
+
+    const option =
+        document.createElement("option");
+
+    option.value = i;
+    option.textContent = i;
+
+    birthDay.appendChild(option);
+
+}
+
+
+const birthYear =
+    document.getElementById("birthYear");
+
+
+for(let year = 2000; year <= 2050; year++){
+
+    const option =
+        document.createElement("option");
+
+    option.value = year;
+    option.textContent = year;
+
+    birthYear.appendChild(option);
+
+}
+
+
+const locationData = {
+
+    "ঢাকা": {
+
+        "ঢাকা": [
+            "ঢাকা সদর",
+            "কেরানীগঞ্জ",
+            "সাভার",
+            "ধামরাই",
+            "দোহার",
+            "নবাবগঞ্জ"
+        ],
+
+        "গাজীপুর": [
+            "গাজীপুর সদর",
+            "কালিয়াকৈর",
+            "কালীগঞ্জ",
+            "কাপাসিয়া",
+            "শ্রীপুর"
+        ]
+
+    },
+
+    "ময়মনসিংহ": {
+
+        "নেত্রকোণা": [
+            "নেত্রকোণা সদর",
+            "বারহাট্টা",
+            "দুর্গাপুর",
+            "কলমাকান্দা",
+            "কেন্দুয়া",
+            "মদন",
+            "মোহনগঞ্জ",
+            "খালিয়াজুরী",
+            "আটপাড়া",
+            "পূর্বধলা"
+        ],
+
+        "ময়মনসিংহ": [
+            "ময়মনসিংহ সদর",
+            "ত্রিশাল",
+            "ভালুকা",
+            "মুক্তাগাছা",
+            "ফুলপুর",
+            "গফরগাঁও",
+            "গৌরীপুর",
+            "ঈশ্বরগঞ্জ",
+            "নান্দাইল",
+            "ধোবাউড়া",
+            "ফুলবাড়ীয়া",
+            "হালুয়াঘাট"
+        ],
+
+        "জামালপুর": [
+            "জামালপুর সদর",
+            "সরিষাবাড়ী",
+            "মেলান্দহ",
+            "ইসলামপুর",
+            "দেওয়ানগঞ্জ",
+            "বকশীগঞ্জ",
+            "মাদারগঞ্জ"
+        ],
+
+        "শেরপুর": [
+            "শেরপুর সদর",
+            "নকলা",
+            "নালিতাবাড়ী",
+            "শ্রীবরদী",
+            "ঝিনাইগাতী"
+        ]
+
+    },
+
+
+    "চট্টগ্রাম": {
+
+        "চট্টগ্রাম": [
+            "চট্টগ্রাম সদর",
+            "পটিয়া",
+            "সীতাকুণ্ড",
+            "রাউজান",
+            "ফটিকছড়ি",
+            "হাটহাজারী",
+            "মিরসরাই",
+            "সন্দ্বীপ"
+        ],
+
+        "কুমিল্লা": [
+            "কুমিল্লা সদর",
+            "চৌদ্দগ্রাম",
+            "দাউদকান্দি",
+            "লাকসাম",
+            "বুড়িচং",
+            "বরুড়া"
+        ]
+
+    },
+
+
+    "রাজশাহী": {
+
+        "রাজশাহী": [
+            "রাজশাহী সদর",
+            "পবা",
+            "দুর্গাপুর",
+            "বাগমারা",
+            "চারঘাট",
+            "বাঘা",
+            "গোদাগাড়ী",
+            "তানোর"
+        ]
+
+    },
+
+
+    "খুলনা": {
+
+        "খুলনা": [
+            "খুলনা সদর",
+            "দাকোপ",
+            "দিঘলিয়া",
+            "ডুমুরিয়া",
+            "কয়রা",
+            "পাইকগাছা",
+            "ফুলতলা",
+            "রূপসা"
+        ]
+
+    },
+
+
+    "বরিশাল": {
+
+        "বরিশাল": [
+            "বরিশাল সদর",
+            "বাকেরগঞ্জ",
+            "বানারীপাড়া",
+            "গৌরনদী",
+            "হিজলা",
+            "মেহেন্দিগঞ্জ",
+            "মুলাদী",
+            "উজিরপুর"
+        ]
+
+    },
+
+
+    "সিলেট": {
+
+        "সিলেট": [
+            "সিলেট সদর",
+            "বালাগঞ্জ",
+            "বিয়ানীবাজার",
+            "বিশ্বনাথ",
+            "কোম্পানীগঞ্জ",
+            "ফেঞ্চুগঞ্জ",
+            "গোলাপগঞ্জ",
+            "জৈন্তাপুর"
+        ]
+
+    },
+
+
+    "রংপুর": {
+
+        "রংপুর": [
+            "রংপুর সদর",
+            "বদরগঞ্জ",
+            "গঙ্গাচড়া",
+            "কাউনিয়া",
+            "মিঠাপুকুর",
+            "পীরগঞ্জ",
+            "পীরগাছা",
+            "তারাগঞ্জ"
+        ]
+
+    }
+
+};
+
+
+const division =
+    document.getElementById("division");
+
+const district =
+    document.getElementById("district");
+
+const upazila =
+    document.getElementById("upazila");
+
+
+Object.keys(locationData).forEach(div => {
+
+    const option =
+        document.createElement("option");
+
+    option.value = div;
+    option.textContent = div;
+
+    division.appendChild(option);
+
+});
+
+
+division.addEventListener("change", function(){
+
+    district.innerHTML =
+        '<option value="">জেলা নির্বাচন করুন</option>';
+
+    upazila.innerHTML =
+        '<option value="">প্রথমে জেলা নির্বাচন করুন</option>';
+
+    district.disabled = true;
+    upazila.disabled = true;
+
+    if(!this.value) return;
+
+    Object.keys(locationData[this.value]).forEach(dist => {
+
+        const option =
+            document.createElement("option");
+
+        option.value = dist;
+        option.textContent = dist;
+
+        district.appendChild(option);
+
+    });
+
+    district.disabled = false;
+
+});
+
+
+district.addEventListener("change", function(){
+
+    upazila.innerHTML =
+        '<option value="">উপজেলা / থানা নির্বাচন করুন</option>';
+
+    upazila.disabled = true;
+
+    if(!this.value) return;
+
+    const selectedDivision =
+        division.value;
+
+    const areas =
+        locationData[selectedDivision][this.value];
+
+    areas.forEach(area => {
+
+        const option =
+            document.createElement("option");
+
+        option.value = area;
+        option.textContent = area;
+
+        upazila.appendChild(option);
+
+    });
+
+    upazila.disabled = false;
+
+});
+
+
+const studentPhoto =
+    document.getElementById("studentPhoto");
+
+const studentPhotoPreview =
+    document.getElementById("studentPhotoPreview");
+
+const photoMessage =
+    document.getElementById("photoMessage");
+
+let studentPhotoData = "";
+
+
+studentPhoto.addEventListener("change", function(){
+
+    const file = this.files[0];
+
+    studentPhotoPreview.style.display = "none";
+
+    photoMessage.textContent = "";
+
+    studentPhotoData = "";
+
+    if(!file) return;
+
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload = function(e){
+
+        const img =
+            new Image();
+
+        img.onload = function(){
+
+            if(
+                img.width !== 300 ||
+                img.height !== 300
+            ){
+
+                photoMessage.textContent =
+                    "❌ ছবির মাপ অবশ্যই 300 × 300 Pixel হতে হবে।";
+
+                photoMessage.className =
+                    "error-message";
+
+                studentPhoto.value = "";
+
+                return;
+
+            }
+
+
+            studentPhotoData =
+                e.target.result;
+
+            studentPhotoPreview.src =
+                e.target.result;
+
+            studentPhotoPreview.style.display =
+                "block";
+
+            photoMessage.textContent =
+                "✓ 300 × 300 Pixel ছবি গ্রহণ করা হয়েছে।";
+
+            photoMessage.className =
+                "success-message";
+
+        };
+
+
+        img.src = e.target.result;
+
+    };
+
+
+    reader.readAsDataURL(file);
+
+});
+
+
+let currentStep = 1;
+
+
+function showStep(step){
+
+    document.querySelectorAll(".form-step").forEach(item => {
+
+        item.classList.remove("active");
+
+    });
+
+
+    const target =
+        document.querySelector(
+            `.form-step[data-step="${step}"]`
+        );
+
+    if(target){
+        target.classList.add("active");
+    }
+
+
+    document.querySelectorAll(".step").forEach(item => {
+
+        item.classList.remove("active","completed");
+
+        const number =
+            Number(item.dataset.step);
+
+        if(number === step){
+            item.classList.add("active");
+        }
+
+        if(number < step){
+            item.classList.add("completed");
+        }
+
+    });
+
+
+    currentStep = step;
+
+    document.getElementById("admission")
+        .scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+
+}
+
+
+function validateStep(step){
+
+    const formStep =
+        document.querySelector(
+            `.form-step[data-step="${step}"]`
+        );
+
+    if(!formStep) return true;
+
+
+    const inputs =
+        formStep.querySelectorAll(
+            "input[required], select[required]"
+        );
+
+
+    for(const input of inputs){
+
+        if(
+            input.type === "checkbox" &&
+            !input.checked
+        ){
+
+            input.reportValidity();
+            return false;
+
+        }
+
+
+        if(
+            input.type !== "checkbox" &&
+            !input.value
+        ){
+
+            input.reportValidity();
+            return false;
+
+        }
+
+    }
+
+
+    if(
+        step === 1 &&
+        !studentPhotoData
+    ){
+
+        alert(
+            "অনুগ্রহ করে 300×300 Pixel শিক্ষার্থীর ছবি নির্বাচন করুন।"
+        );
+
+        return false;
+
+    }
+
+
+    return true;
+
+}
+
+
+document.querySelectorAll(".next-btn").forEach(button => {
+
+    button.addEventListener("click", function(){
+
+        const next =
+            Number(this.dataset.next);
+
+        if(validateStep(currentStep)){
+
+            showStep(next);
+
+        }
+
+    });
+
+});
+
+
+document.querySelectorAll(".back-btn").forEach(button => {
+
+    button.addEventListener("click", function(){
+
+        const back =
+            Number(this.dataset.back);
+
+        showStep(back);
+
+    });
+
+});
+
+
+function getBanglaDate(){
+
+    const months = [
+
+        "জানুয়ারি",
+        "ফেব্রুয়ারি",
+        "মার্চ",
+        "এপ্রিল",
+        "মে",
+        "জুন",
+        "জুলাই",
+        "আগস্ট",
+        "সেপ্টেম্বর",
+        "অক্টোবর",
+        "নভেম্বর",
+        "ডিসেম্বর"
+
+    ];
+
+    const now = new Date();
+
+    return (
+        String(now.getDate()).padStart(2,"0")
+        + " "
+        + months[now.getMonth()]
+        + " "
+        + now.getFullYear()
+    );
+
+}
+
+
+function generateApplicationNumber(){
+
+    const year =
+        new Date().getFullYear();
+
+    const random =
+        Math.floor(
+            100000 +
+            Math.random() * 900000
+        );
+
+    return `ABS-${year}-${random}`;
+
+}
+
+
+function getApplicationData(){
+
+    return {
+
+        applicationNumber:
+            generateApplicationNumber(),
+
+        applicationDate:
+            getBanglaDate(),
+
+        studentName:
+            document.getElementById("studentName").value,
+
+        className:
+            document.getElementById("className").value,
+
+        gender:
+            document.getElementById("gender").value,
+
+        birthRegistration:
+            document.getElementById("birthRegistration").value,
+
+        birthDay:
+            document.getElementById("birthDay").value,
+
+        birthMonth:
+            document.getElementById("birthMonth").value,
+
+        birthYear:
+            document.getElementById("birthYear").value,
+
+        birthDate:
+            `${document.getElementById("birthDay").value}-${document.getElementById("birthMonth").value}-${document.getElementById("birthYear").value}`,
+
+        studentPhoto:
+            studentPhotoData,
+
+        division:
+            division.value,
+
+        district:
+            district.value,
+
+        upazila:
+            upazila.value,
+
+        village:
+            document.getElementById("village").value,
+
+        fatherName:
+            document.getElementById("fatherName").value,
+
+        fatherNid:
+            document.getElementById("fatherNid").value,
+
+        motherName:
+            document.getElementById("motherName").value,
+
+        motherNid:
+            document.getElementById("motherNid").value,
+
+        guardianPhone:
+            document.getElementById("guardianPhone").value,
+
+        guardianRelation:
+            document.getElementById("guardianRelation").value
+
+    };
+
+}
+
+
+document.getElementById("admissionForm")
+.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+
+    if(!validateStep(4)){
+        return;
+    }
+
+
+    const data =
+        getApplicationData();
+
+
+    localStorage.setItem(
+        "schoolApplication",
+        JSON.stringify(data)
+    );
+
+
+    displayApplication(data);
+
+
+    alert(
+        "আপনার ভর্তি আবেদন সফলভাবে তৈরি হয়েছে।"
+    );
+
+});
+
+
+function displayApplication(data){
+
+    document.getElementById(
+        "resultApplicationNumber"
+    ).textContent =
+        data.applicationNumber;
+
+
+    document.getElementById(
+        "resultApplicationDate"
+    ).textContent =
+        data.applicationDate;
+
+
+    document.getElementById(
+        "resultStudentName"
+    ).textContent =
+        data.studentName;
+
+
+    document.getElementById(
+        "resultClass"
+    ).textContent =
+        data.className;
+
+
+    document.getElementById(
+        "resultGender"
+    ).textContent =
+        data.gender;
+
+
+    document.getElementById(
+        "resultBirthRegistration"
+    ).textContent =
+        data.birthRegistration;
+
+
+    document.getElementById(
+        "resultBirthDate"
+    ).textContent =
+        data.birthDate;
+
+
+    document.getElementById(
+        "resultDivision"
+    ).textContent =
+        data.division;
+
+
+    document.getElementById(
+        "resultDistrict"
+    ).textContent =
+        data.district;
+
+
+    document.getElementById(
+        "resultUpazila"
+    ).textContent =
+        data.upazila;
+
+
+    document.getElementById(
+        "resultVillage"
+    ).textContent =
+        data.village;
+
+
+    document.getElementById(
+        "resultFatherName"
+    ).textContent =
+        data.fatherName;
+
+
+    document.getElementById(
+        "resultFatherNid"
+    ).textContent =
+        data.fatherNid || "প্রযোজ্য নয়";
+
+
+    document.getElementById(
+        "resultMotherName"
+    ).textContent =
+        data.motherName;
+
+
+    document.getElementById(
+        "resultMotherNid"
+    ).textContent =
+        data.motherNid || "প্রযোজ্য নয়";
+
+
+    document.getElementById(
+        "resultGuardianPhone"
+    ).textContent =
+        data.guardianPhone;
+
+
+    document.getElementById(
+        "resultGuardianRelation"
+    ).textContent =
+        data.guardianRelation;
+
+
+    document.getElementById(
+        "resultStudentPhoto"
+    ).src =
+        data.studentPhoto;
+
+
+    document.getElementById(
+        "applicationResultSection"
+    ).style.display =
+        "block";
+
+
+    setTimeout(() => {
+
+        document.getElementById(
+            "applicationResultSection"
+        ).scrollIntoView({
+            behavior:"smooth"
+        });
+
+    },100);
+
+}
+
+
+document.getElementById(
+    "loadApplicationBtn"
+)
+.addEventListener("click", function(){
+
+    const saved =
+        localStorage.getItem(
+            "schoolApplication"
+        );
+
+
+    if(!saved){
+
+        alert(
+            "এই ডিভাইসে কোনো সংরক্ষিত আবেদন পাওয়া যায়নি।"
+        );
+
+        return;
+
+    }
+
+
+    try{
+
+        const data =
+            JSON.parse(saved);
+
+        displayApplication(data);
+
+    }catch(error){
+
+        alert(
+            "আবেদন তথ্য পড়তে সমস্যা হয়েছে।"
+        );
+
+    }
+
+});
+
+
+document.getElementById(
+    "downloadApplicationPdf"
+)
+.addEventListener("click", async function(){
+
+    const button = this;
+
+    const oldText =
+        button.innerHTML;
+
+    button.innerHTML =
+        '<i class="fa-solid fa-spinner fa-spin"></i> PDF তৈরি হচ্ছে...';
+
+    button.disabled = true;
+
+
+    try{
+
+        const paper =
+            document.getElementById(
+                "applicationPaper"
+            );
+
+
+        const canvas =
+            await html2canvas(
+                paper,
+                {
+                    scale: 2,
+                    useCORS: true,
+                    allowTaint: false,
+                    backgroundColor: "#ffffff"
+                }
+            );
+
+
+        const imageData =
+            canvas.toDataURL(
+                "image/jpeg",
+                0.95
+            );
+
+
+        const {
+            jsPDF
+        } = window.jspdf;
+
+
+        const pdf =
+            new jsPDF(
+                "p",
+                "mm",
+                "a4"
+            );
+
+
+        pdf.addImage(
+            imageData,
+            "JPEG",
+            0,
+            0,
+            210,
+            297
+        );
+
+
+        const appNumber =
+            document.getElementById(
+                "resultApplicationNumber"
+            ).textContent;
+
+
+        pdf.save(
+            `আবেদন-${appNumber}.pdf`
+        );
+
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(
+            "PDF তৈরি করা যায়নি। আবার চেষ্টা করুন।"
+        );
+
+    }
+
+
+    button.innerHTML = oldText;
+    button.disabled = false;
+
+});
+
+
+document.getElementById(
+    "printApplication"
+)
+.addEventListener("click", function(){
+
+    document.body.classList.add(
+        "printing-application"
+    );
+
+    window.print();
+
+    setTimeout(() => {
+
+        document.body.classList.remove(
+            "printing-application"
+        );
+
+    },500);
+
+});
+
+
+document.getElementById(
+    "paymentForm"
+)
+.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+
+    const method =
+        document.getElementById(
+            "paymentMethod"
+        ).value;
+
+
+    const sender =
+        document.getElementById(
+            "senderNumber"
+        ).value;
+
+
+    const transaction =
+        document.getElementById(
+            "transactionId"
+        ).value;
+
+
+    if(!method || !sender || !transaction){
+
+        alert(
+            "সব তথ্য পূরণ করুন।"
+        );
+
+        return;
+
+    }
+
+
+    const date =
+        getBanglaDate();
+
+
+    document.getElementById(
+        "receiptMethod1"
+    ).textContent = method;
+
+
+    document.getElementById(
+        "receiptSender1"
+    ).textContent = sender;
+
+
+    document.getElementById(
+        "receiptTransaction1"
+    ).textContent = transaction;
+
+
+    document.getElementById(
+        "receiptDate1"
+    ).textContent = date;
+
+
+    document.getElementById(
+        "receiptMethod2"
+    ).textContent = method;
+
+
+    document.getElementById(
+        "receiptSender2"
+    ).textContent = sender;
+
+
+    document.getElementById(
+        "receiptTransaction2"
+    ).textContent = transaction;
+
+
+    document.getElementById(
+        "receiptDate2"
+    ).textContent = date;
+
+
+    document.getElementById(
+        "receiptResultSection"
+    ).style.display =
+        "block";
+
+
+    document.getElementById(
+        "receiptResultSection"
+    ).scrollIntoView({
+        behavior:"smooth"
+    });
+
+});
+
+
+document.getElementById(
+    "printReceipt"
+)
+.addEventListener("click", function(){
+
+    document.body.classList.add(
+        "printing-receipt"
+    );
+
+    window.print();
+
+    setTimeout(() => {
+
+        document.body.classList.remove(
+            "printing-receipt"
+        );
+
+    },500);
+
+});
+
+
+document.querySelectorAll(
+    ".gallery-item img"
+).forEach(img => {
+
+    img.addEventListener(
+        "error",
+        function(){
+
+            this.src =
+                "images/school.jpg";
+
+        }
+    );
+
+});
+
+
+});
+
+</script>
+
+<!-- Google Translate: English is the first-visit default; visitors can switch to Bengali. -->
+<style>
+/* Stable visibility and gentle motion; no content is hidden while scrolling. */
+section[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+.quick-card,.feature-card,.person-card,.gallery-item,.contact-card,.notice-box,.about-image,.about-content,.form-card,.payment-info,.payment-form{transition:transform .28s ease,box-shadow .28s ease,opacity .28s ease}
+.quick-card:hover,.feature-card:hover,.person-card:hover,.gallery-item:hover{transform:translateY(-4px)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+</style>
+<script>
+(function(){
+  'use strict';
+  const LANG_KEY='abbasia_school_language';
+  const saved=localStorage.getItem(LANG_KEY);
+  let currentLang=saved==='bn'?'bn':'en';
+  if(!saved) localStorage.setItem(LANG_KEY,'en');
+
+  // Local dictionary: no Google Translate dependency and no page reload.
+  const DICT={
+    'আব্বাছিয়া উচ্চ বিদ্যালয়, বালী — অফিসিয়াল ওয়েবসাইটে স্বাগতম':'Welcome to the official website of Abbasia High School',
+    'আব্বাছিয়া উচ্চ বিদ্যালয়, বালী':'Abbasia High School, Bali','শিক্ষা • শৃঙ্খলা • উন্নতি':'Education • Discipline • Progress',
+    'হোম':'Home','আমাদের সম্পর্কে':'About Us','শিক্ষা কার্যক্রম':'Academic Programs','তথ্যসমূহ':'Information','ক্লাস রুটিন':'Class Routine','নোটিশ বোর্ড':'Notice Board','অনলাইন ভর্তি':'Online Admission','পেমেন্ট':'Payment','ফলাফল':'Results','শিক্ষক ও কর্মচারী':'Teachers & Staff','শিক্ষকবৃন্দ':'Teachers','কর্মচারীবৃন্দ':'Staff','গ্যালারি':'Gallery','যোগাযোগ':'Contact',
+    'প্রতিষ্ঠিত: ১৯৬০ ইং.':'Established: 1960','জ্ঞান অর্জন, স্বপ্নের বিকাশ, আগামীর নেতৃত্ব':'Knowledge, dreams and leadership for tomorrow','শিক্ষা, শৃঙ্খলা ও নৈতিকতার আলোয় গড়ে উঠুক প্রতিটি শিক্ষার্থীর উজ্জ্বল ভবিষ্যৎ।':'Building every student’s bright future through education, discipline and values.','বিদ্যালয় সম্পর্কে জানুন':'Explore Our School','অনলাইন ভর্তি আবেদন':'Online Admission Application',
+    '১৯৬০ ইং.':'1960','প্রতিষ্ঠাকাল':'Established','EIIN নম্বর':'EIIN Number','নেত্রকোণা':'Netrokona','বিদ্যালয়ের ঠিকানা':'School Location','১৭ জন':'17','শিক্ষক':'Teachers',
+    'একটি সুন্দর, সুশৃঙ্খল ও আধুনিক শিক্ষা প্রতিষ্ঠান':'A modern school built on discipline and excellence','খ্রি.':'AD','জ্ঞান, নৈতিকতা ও শৃঙ্খলার সমন্বয়ে শিক্ষা':'Education through knowledge, values and discipline',
+    'আব্বাছিয়া উচ্চ বিদ্যালয়, বালী একটি ঐতিহ্যবাহী শিক্ষা প্রতিষ্ঠান। শিক্ষার্থীদের মানসম্মত শিক্ষা, নৈতিক মূল্যবোধ, শৃঙ্খলা ও সুন্দর ভবিষ্যৎ গঠনের লক্ষ্যে প্রতিষ্ঠানটি কাজ করে যাচ্ছে।':'Abbasia High School, Bali is a traditional educational institution dedicated to quality education, moral values, discipline and a brighter future for its students.',
+    'আধুনিক শিক্ষা ব্যবস্থার সঙ্গে তাল মিলিয়ে শিক্ষার্থীদের জ্ঞান, দক্ষতা ও সৃজনশীলতা বিকাশে বিদ্যালয়টি গুরুত্বপূর্ণ ভূমিকা পালন করছে।':'The school plays an important role in developing students’ knowledge, skills and creativity in line with modern education.',
+    'মানসম্মত শিক্ষা':'Quality Education','শৃঙ্খলাপূর্ণ পরিবেশ':'Disciplined Environment','অভিজ্ঞ শিক্ষকবৃন্দ':'Experienced Teachers','আধুনিক শিক্ষা ব্যবস্থা':'Modern Education',
+    'প্রধান শিক্ষকের বাণী':'Message from the Headteacher','শিক্ষার্থীরাই আমাদের ভবিষ্যৎ':'Our Students Are Our Future','— প্রধান শিক্ষক':'— Headteacher',
+    'শিক্ষা মানুষের জীবনের সবচেয়ে গুরুত্বপূর্ণ সম্পদ। একজন শিক্ষার্থীকে শুধু পরীক্ষায় ভালো ফলাফল করলেই হবে না; তাকে সৎ, দায়িত্বশীল, শৃঙ্খলাবোধসম্পন্ন ও মানবিক মানুষ হিসেবে গড়ে উঠতে হবে।':'Education is one of life’s greatest assets. Students should not only achieve good exam results, but also grow into honest, responsible, disciplined and compassionate people.',
+    'আব্বাছিয়া উচ্চ বিদ্যালয় শিক্ষার্থীদের সুন্দর ভবিষ্যৎ গঠনে সর্বদা আন্তরিকভাবে কাজ করে যাচ্ছে।':'Abbasia High School is committed to helping students build a bright future.',
+    'আমাদের শিক্ষা ব্যবস্থা':'Our Education System','শিক্ষার্থীদের সার্বিক উন্নয়নে বিভিন্ন শিক্ষা কার্যক্রম':'Programs for students’ all-round development','মানসম্মত পাঠদান':'Quality Teaching','অভিজ্ঞ শিক্ষকবৃন্দের মাধ্যমে নিয়মিত ও মানসম্মত পাঠদান।':'Regular, quality lessons delivered by experienced teachers.','ব্যবহারিক শিক্ষা':'Practical Learning','শিক্ষার্থীদের বাস্তবভিত্তিক জ্ঞান ও দক্ষতা বৃদ্ধির সুযোগ।':'Opportunities to develop practical knowledge and skills.','সহশিক্ষা কার্যক্রম':'Extracurricular Activities','খেলাধুলা ও বিভিন্ন সহশিক্ষা কার্যক্রমে অংশগ্রহণের সুযোগ।':'Opportunities to participate in sports and extracurricular activities.','ফলাফল ও সাফল্য':'Results & Achievement','শিক্ষার্থীদের ভালো ফলাফল ও সাফল্যের জন্য নিয়মিত সহযোগিতা।':'Ongoing support to help students achieve good results.',
+    'শ্রেণিভিত্তিক রুটিন':'Class-wise Routine','প্রয়োজনীয় শ্রেণির রুটিন দেখতে নিচের বাটনে ক্লিক করুন':'Select a class below to view its routine','৬ষ্ঠ শ্রেণি':'Class 6','৭ম শ্রেণি':'Class 7','৮ম শ্রেণি':'Class 8','৯ম শ্রেণি':'Class 9','১০ম শ্রেণি':'Class 10','সর্বশেষ নোটিশ':'Latest Notice','বার্ষিক পরীক্ষা সংক্রান্ত বিজ্ঞপ্তি':'Annual Examination Notice','২০২৬ সালের বার্ষিক পরীক্ষা আগামী':'The 2026 annual examination will begin on','থেকে শুরু হবে।':'','১৫ ডিসেম্বর ২০২৬':'15 December 2026',
+    'ধাপে ধাপে আবেদন সম্পন্ন করুন':'Complete your application step by step','শিক্ষার্থী':'Student','ঠিকানা':'Address','অভিভাবক':'Guardian','নিশ্চিত':'Confirm','শিক্ষার্থীর তথ্য':'Student Information','শিক্ষার্থীর পূর্ণ নাম *':'Student Full Name *','ভর্তির শ্রেণি *':'Admission Class *','শ্রেণি নির্বাচন করুন':'Select Class','লিঙ্গ *':'Gender *','নির্বাচন করুন':'Select','ছেলে':'Male','মেয়ে':'Female','জন্ম নিবন্ধন নম্বর *':'Birth Registration Number *','জন্ম তারিখ *':'Date of Birth *','দিন':'Day','মাস':'Month','বছর':'Year','জানুয়ারি':'January','ফেব্রুয়ারি':'February','মার্চ':'March','এপ্রিল':'April','মে':'May','জুন':'June','জুলাই':'July','আগস্ট':'August','সেপ্টেম্বর':'September','অক্টোবর':'October','নভেম্বর':'November','ডিসেম্বর':'December','শিক্ষার্থীর ছবি *':'Student Photo *','শুধু 300 × 300 Pixel ছবি':'300 × 300 Pixel image only','ছবির আকার অবশ্যই 300×300 হতে হবে':'Image must be exactly 300×300 pixels','পরবর্তী ধাপ':'Next Step','বিভাগ *':'Division *','বিভাগ নির্বাচন করুন':'Select Division','জেলা *':'District *','প্রথমে বিভাগ নির্বাচন করুন':'Select a division first','উপজেলা / থানা *':'Upazila / Police Station *','প্রথমে জেলা নির্বাচন করুন':'Select a district first','গ্রাম / মহল্লা *':'Village / Locality *','পূর্ববর্তী':'Previous','অভিভাবকের তথ্য':'Guardian Information','পিতার নাম *':'Father’s Name *','পিতার NID':'Father’s NID','মাতার নাম *':'Mother’s Name *','মাতার NID':'Mother’s NID','অভিভাবকের মোবাইল *':'Guardian Mobile *','সম্পর্ক *':'Relationship *','পিতা':'Father','মাতা':'Mother','ভাই':'Brother','বোন':'Sister','অন্যান্য':'Other','আবেদন নিশ্চিত করুন':'Confirm Application','আবেদন জমা দেওয়ার আগে তথ্য যাচাই করুন':'Review your information before submitting','আপনার দেওয়া সব তথ্য সঠিক হলে নিচের সম্মতিতে টিক দিয়ে আবেদন জমা দিন।':'If all information is correct, tick the declaration below and submit your application.','আমি ঘোষণা করছি যে, উপরে দেওয়া সকল তথ্য সঠিক ও সত্য।':'I declare that all the information provided above is true and correct.','আবেদন জমা দিন':'Submit Application','আগের আবেদন বের করুন':'Retrieve Previous Application','এই ডিভাইসে আগে আবেদন করা থাকলে আবেদনটি দেখতে পারবেন।':'You can view an application previously saved on this device.','আবেদন দেখুন':'View Application',
+    'আবেদন সম্পন্ন':'Application Completed','আপনার আবেদনপত্র':'Your Application','PDF ডাউনলোড':'Download PDF','প্রিন্ট করুন':'Print','অনলাইন ভর্তি আবেদনপত্র':'Online Admission Form','আবেদন নম্বর:':'Application No:','তারিখ:':'Date:','শিক্ষার্থীর নাম':'Student Name','ভর্তির শ্রেণি':'Admission Class','লিঙ্গ':'Gender','জন্ম নিবন্ধন':'Birth Registration','জন্ম তারিখ':'Date of Birth','বিভাগ':'Division','জেলা':'District','উপজেলা / থানা':'Upazila / Police Station','গ্রাম / মহল্লা':'Village / Locality','অভিভাবকের তথ্য':'Guardian Information','পিতার নাম':'Father’s Name','পিতার NID':'Father’s NID','মাতার নাম':'Mother’s Name','মাতার NID':'Mother’s NID','মোবাইল':'Mobile','সম্পর্ক':'Relationship','অভিভাবকের স্বাক্ষর':'Guardian Signature','বিদ্যালয় কর্তৃপক্ষ':'School Authority',
+    'অনলাইন পেমেন্ট':'Online Payment','ভর্তি ফি প্রদান':'Pay Admission Fee','আবেদন নম্বর বা জন্মসনদ/বয়সের তথ্য প্রয়োজন নেই।':'No application number or birth certificate/age information is required.','পেমেন্ট তথ্য':'Payment Information','পেমেন্ট নম্বর':'Payment Number','ভর্তি ফি':'Admission Fee','টাকা পাঠানোর পর নিচের ফর্মে প্রেরকের নম্বর ও Transaction ID দিন।':'After sending the payment, enter the sender’s number and Transaction ID below.','পেমেন্টের তথ্য':'Payment Details','পেমেন্ট পদ্ধতি *':'Payment Method *','যে নম্বর থেকে টাকা পাঠিয়েছেন *':'Sender’s Mobile Number *','পরিমাণ':'Amount','পেমেন্ট রিসিট তৈরি করুন':'Generate Payment Receipt','পেমেন্ট সম্পন্ন':'Payment Completed','পেমেন্ট রিসিট':'Payment Receipt','রিসিট প্রিন্ট করুন':'Print Receipt','অফিস কপি':'Office Copy','পেমেন্ট পদ্ধতি':'Payment Method','প্রেরকের নম্বর':'Sender’s Number','অনুমোদিত স্বাক্ষর':'Authorized Signature','শিক্ষার্থী কপি':'Student Copy',
+    'ফলাফল দেখুন':'View Results','ফলাফল প্রকাশিত হলে এখানে ফলাফল সংক্রান্ত তথ্য দেওয়া হবে।':'Result information will be published here when available.','ফলাফল বিভাগ':'Results Section','ফলাফল প্রকাশের পর এখানে প্রয়োজনীয় লিংক যুক্ত করা যাবে।':'Relevant links will be added here after results are published.','আমাদের শিক্ষকবৃন্দ':'Our Teachers','অভিজ্ঞ ও নিবেদিতপ্রাণ শিক্ষকবৃন্দ':'Experienced and dedicated teachers','আমাদের কর্মচারীবৃন্দ':'Our Staff','বিদ্যালয়ের দৈনন্দিন কার্যক্রমে নিয়োজিত কর্মচারীবৃন্দ':'Staff members supporting the school’s daily operations','ফটো গ্যালারি':'Photo Gallery','বিদ্যালয়ের কিছু ছবি':'A glimpse of our school','আমাদের সাথে যোগাযোগ করুন':'Get in Touch','ফোন':'Phone','ই-মেইল':'Email','ঠিকানা':'Address','সর্বস্বত্ব সংরক্ষিত':'All rights reserved'
+  };
+
+  const originals=new WeakMap();
+  function norm(s){return s.replace(/\s+/g,' ').trim();}
+  function translateNode(node){
+    if(node.nodeType!==Node.TEXT_NODE) return;
+    if(!originals.has(node)) originals.set(node,node.nodeValue);
+    const original=originals.get(node);
+    if(currentLang==='bn'){node.nodeValue=original;return;}
+    const key=norm(original);
+    if(Object.prototype.hasOwnProperty.call(DICT,key)){
+      const lead=(original.match(/^\s*/)||[''])[0], trail=(original.match(/\s*$/)||[''])[0];
+      node.nodeValue=lead+DICT[key]+trail;
+    }
+  }
+  function applyLanguage(){
+    document.documentElement.lang=currentLang;
+    document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===currentLang));
+    const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+    let n; while((n=walker.nextNode())) translateNode(n);
+    document.querySelectorAll('[placeholder]').forEach(el=>{
+      if(!el.dataset.originalPlaceholder) el.dataset.originalPlaceholder=el.placeholder;
+      el.placeholder=currentLang==='bn'?el.dataset.originalPlaceholder:(DICT[norm(el.dataset.originalPlaceholder)]||el.dataset.originalPlaceholder);
+    });
+    document.querySelectorAll('[aria-label]').forEach(el=>{
+      if(!el.dataset.originalAria) el.dataset.originalAria=el.getAttribute('aria-label');
+      const v=el.dataset.originalAria; el.setAttribute('aria-label',currentLang==='bn'?v:(DICT[norm(v)]||v));
+    });
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('.lang-btn').forEach(btn=>btn.addEventListener('click',function(){
+      currentLang=this.dataset.lang==='bn'?'bn':'en'; localStorage.setItem(LANG_KEY,currentLang); applyLanguage();
+    }));
+    // Book-page transition: every in-page navigation opens its destination with a page-turn effect.
+    document.addEventListener('click',function(e){
+      const link=e.target.closest('a[href^="#"]');
+      if(!link) return;
+      const href=link.getAttribute('href');
+      if(!href || href==='#') return;
+      const target=document.querySelector(href);
+      if(!target) return;
+      e.preventDefault(); e.stopImmediatePropagation();
+      if(target.hidden) target.hidden=false;
+      const nav=document.getElementById('mainNav'); if(nav) nav.classList.remove('show');
+      const menuIcon=document.querySelector('#mobileMenuBtn i'); if(menuIcon) menuIcon.className='fa-solid fa-bars';
+      const oldTurn=document.querySelector('.book-page-transition'); if(oldTurn) oldTurn.remove();
+      const turn=document.createElement('div');
+      turn.className='book-page-transition';
+      turn.setAttribute('aria-hidden','true');
+      turn.innerHTML='<div class="book-animation-stage"><div class="book-page-left"></div><div class="book-page-right"></div><div class="book-page-spine"></div></div>';
+      document.body.appendChild(turn);
+      requestAnimationFrame(()=>turn.classList.add('turning'));
+      window.setTimeout(()=>{
+        target.scrollIntoView({behavior:'instant',block:'start'});
+        history.replaceState(null,'',href);
+      },420);
+      window.setTimeout(()=>turn.remove(),1050);
+    },true);
+    // Premium reveal motion: stagger cards and section content as they enter view.
+    const revealTargets=document.querySelectorAll('.section-heading,.quick-card,.feature-card,.person-card,.gallery-item,.contact-card,.notice-box,.about-image,.about-content,.principal-card,.form-card,.payment-info,.hero-content,.hero-image,.stat-item,main section .container > h2,main section .container > p,main section .container > .grid,main section .container > .cards,.btn,button');
+    if('IntersectionObserver' in window){
+      const revealObserver=new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target);}
+        });
+      },{threshold:0.04,rootMargin:'0px 0px -10px 0px'});
+      revealTargets.forEach((el,index)=>{
+        el.classList.add('scroll-reveal-premium');
+        el.style.setProperty('--reveal-delay',`${(index%4)*75}ms`);
+        revealObserver.observe(el);
+      });
+    }else{revealTargets.forEach(el=>el.classList.add('is-visible'));}
+    // If a form generates new content later, translate the new text too.
+    const observer=new MutationObserver(records=>{for(const record of records){for(const node of record.addedNodes){if(node.nodeType===Node.TEXT_NODE) translateNode(node); else if(node.nodeType===Node.ELEMENT_NODE){const w=document.createTreeWalker(node,NodeFilter.SHOW_TEXT);let t;while((t=w.nextNode()))translateNode(t);}}}});
+    observer.observe(document.body,{childList:true,subtree:true});
+    applyLanguage();
+  });
+})();
+</script>
+
+
+<script>
+/* Rotating bilingual school headline ticker */
+(function(){
+  const messages=[
+    {bn:'আব্বাছিয়া উচ্চ বিদ্যালয়, বালী — অফিসিয়াল ওয়েবসাইটে স্বাগতম',en:'Welcome to the official website of Abbasia High School, Bali'},
+    {bn:'শিক্ষা • শৃঙ্খলা • উন্নতি — গড়ি আলোকিত আগামী',en:'Education • Discipline • Progress — Building a brighter tomorrow'},
+    {bn:'ভর্তি, নোটিশ, ফলাফল ও বিদ্যালয়ের সকল তথ্য এখন এক ঠিকানায়',en:'Admission, notices, results and school information — all in one place'},
+    {bn:'জ্ঞান অর্জন, স্বপ্নের বিকাশ, আগামীর নেতৃত্ব',en:'Knowledge, dreams and leadership for tomorrow'}
+  ];
+  let index=0;
+  function showNext(){
+    const el=document.getElementById('schoolTickerText');
+    if(!el) return;
+    const lang=document.documentElement.lang==='bn'?'bn':'en';
+    el.classList.remove('ticker-enter');
+    void el.offsetWidth;
+    el.textContent=messages[index][lang];
+    el.classList.add('ticker-enter');
+    index=(index+1)%messages.length;
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    showNext();
+    window.setInterval(showNext,4300);
+    document.querySelectorAll('.lang-btn').forEach(btn=>btn.addEventListener('click',()=>{
+      const el=document.getElementById('schoolTickerText');
+      if(el){el.textContent=messages[(index+messages.length-1)%messages.length][btn.dataset.lang==='bn'?'bn':'en'];}
+    }));
+  });
+})();
+</script>
+</body>
+</html>
